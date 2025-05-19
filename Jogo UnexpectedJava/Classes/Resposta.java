@@ -1,12 +1,12 @@
 public class Resposta {
 private String resposta;
 private boolean correta;
-private String final;
+private String conclusao;
 
-public Resposta(String resposta, boolean correta, String final) {
+public Resposta(String resposta, boolean correta, String conclusao) {
     this.resposta = resposta;
-    this.eCorreta = correta;
-    this.final = final;
+    this.correta = correta;
+    this.conclusao = conclusao;
 }
 
 public String getResposta() {
@@ -18,8 +18,8 @@ public boolean isCorreta() {
     return correta;
 }
 
-public String getFinal() {
-    return final;
+public String getConclusao() {
+    return conclusao;
 }
 
 public void setResposta(String resposta) {
@@ -30,8 +30,8 @@ public void setCorreta(boolean correta) {
     this.correta = correta;
 }
 
-public void setFinal(String final) {
-    this.final = final;
+public void setConclusao(String conclusao) {
+    this.conclusao = conclusao;
 }
 
 }
