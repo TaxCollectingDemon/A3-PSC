@@ -3,15 +3,15 @@ public class Cenario {
     private String introducao;
     private String dificuldade;
     private Resposta[] respostas;
-    private int paginaLivro;
-    private Nivel nivel;
+    private String capituloLivro;
+    private int nivel;
 
-    public Cenario(String nome, String introducao, String dificuldade, Resposta[] respostas, int paginaLivro, Nivel nivel) {
+    public Cenario(String nome, String introducao, String dificuldade, Resposta[] respostas, String capituloLivro, int nivel) {
         this.nome = nome;
         this.introducao = introducao;
         this.dificuldade = dificuldade;
         this.respostas = respostas;
-        this.paginaLivro = paginaLivro;
+        this.capituloLivro = capituloLivro;
         this.nivel = nivel;
     }
 
@@ -31,11 +31,11 @@ public class Cenario {
         return respostas;
     }
 
-    public int getPaginaLivro() {
-        return paginaLivro;
+    public String getCapituloLivro() {
+        return capituloLivro;
     }
 
-    public Nivel getNivel() {
+    public int getNivel() {
         return nivel;
     }
 
@@ -55,11 +55,11 @@ public class Cenario {
         this.respostas = respostas;
     }
 
-    public void setPaginaLivro(int paginaLivro) {
-        this.paginaLivro = paginaLivro;
+    public void setCapituloLivro(String capituloLivro) {
+        this.capituloLivro = capituloLivro;
     }
 
-    public void setNivel(Nivel nivel) {
+    public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
