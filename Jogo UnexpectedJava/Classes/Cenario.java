@@ -63,4 +63,11 @@ public class Cenario {
         this.nivel = nivel;
     }
 
+    public void importarRespostas(String arquivo) {
+        int escopo1 = arquivo.indexOf("Nivel " + this.nivel);
+        escopo1 = arquivo.indexOf(this.nome, escopo1);
+        //escopo1 = arquivo.indexOf("Resposta");
+
+    }
+
 }

@@ -11,7 +11,6 @@ public Resposta(String resposta, boolean correta, String conclusao) {
 
 public String getResposta() {
     return resposta;
-
 }
 
 public boolean isCorreta() {
