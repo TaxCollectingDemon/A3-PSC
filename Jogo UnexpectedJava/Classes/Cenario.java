@@ -107,7 +107,6 @@ public class Cenario {
             }
             tempResposta = arquivo.substring(escopo1, escopo2).trim();
             tempConclusao = arquivo.substring(escopo2 + 10, escopo3).trim();
-            
             tempRespostas[i] = new Resposta(tempResposta, tempCorreta, tempConclusao);
         }
         
