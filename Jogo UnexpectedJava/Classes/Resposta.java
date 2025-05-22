@@ -33,4 +33,12 @@ public void setConclusao(String conclusao) {
     this.conclusao = conclusao;
 }
 
+public String toString() {
+    return "Resposta{" +
+            "resposta='" + resposta + '\'' +
+            ", correta=" + correta +
+            ", conclusao='" + conclusao + '\'' +
+            '}';
+}
+
 }

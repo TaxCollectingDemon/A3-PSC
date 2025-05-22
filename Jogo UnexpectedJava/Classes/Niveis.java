@@ -5,6 +5,6 @@ public Niveis(Nivel[] listaNiveis) {
     this.listaNiveis = listaNiveis;
 }
 
-
+    
 
 }

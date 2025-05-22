@@ -66,8 +66,52 @@ public class Cenario {
     public void importarRespostas(String arquivo) {
         int escopo1 = arquivo.indexOf("Nivel " + this.nivel);
         escopo1 = arquivo.indexOf(this.nome, escopo1);
-        //escopo1 = arquivo.indexOf("Resposta");
+        String decalagem = this.nome + ": Capitulo " + this.capituloLivro + ";";
+        escopo1 = escopo1 + decalagem.length() + 1;
+        int escopo2 = arquivo.indexOf("Cenario ", escopo1);
+        int escopo3 = arquivo.indexOf("Nivel ", escopo1);
 
+        if (escopo2 == -1) {
+            escopo2 = arquivo.length() - 1;
+        }
+        if (escopo3 == -1) {
+            escopo3 = arquivo.length() - 1;
+        }
+        if (escopo2 < escopo3) {
+            escopo3 = escopo2;
+        }
+
+        arquivo = arquivo.substring(escopo1, escopo3);
+        escopo1 = arquivo.lastIndexOf("Resposta ");
+        escopo2 = arquivo.indexOf(":", escopo1);
+        int numRespostas = Integer.parseInt(arquivo.substring(escopo1 + 9, escopo2).trim());
+        
+        Resposta[] tempRespostas = new Resposta[numRespostas];
+
+        for (int i = 0; i < tempRespostas.length; i++) {
+            boolean tempCorreta = false;
+            String tempResposta = "";
+            String tempConclusao = "";
+            escopo1 = arquivo.indexOf("Resposta " + (i + 1) + ":");
+            decalagem = "Resposta " + (i + 1) + ":";
+            escopo1 = escopo1 + decalagem.length() + 1;
+            escopo2 = arquivo.indexOf("Conclusao", escopo1);
+            if (i + 2 <= numRespostas) {
+                escopo3 = arquivo.indexOf("Resposta " + (i + 2), escopo1);
+            } else {
+                escopo3 = arquivo.length() - 1;
+            }
+
+            if (arquivo.indexOf("Correta", escopo1, escopo1 + 8) != -1) {
+                tempCorreta = true;
+            }
+            tempResposta = arquivo.substring(escopo1, escopo2).trim();
+            tempConclusao = arquivo.substring(escopo2 + 10, escopo3).trim();
+            
+            tempRespostas[i] = new Resposta(tempResposta, tempCorreta, tempConclusao);
+        }
+        
+        this.respostas = tempRespostas;
     }
 
 }
