@@ -110,7 +110,7 @@ public class Cenario {
             tempRespostas[i] = new Resposta(tempResposta, tempCorreta, tempConclusao);
         }
         
-        this.respostas = tempRespostas;
+        setRespostas(tempRespostas);
     }
 
 }
