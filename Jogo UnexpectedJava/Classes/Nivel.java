@@ -53,16 +53,25 @@ public class Nivel {
         this.fundo = fundo;
     }
 
+    public String toString() {
+        return "Nivel{" +
+                "nome='" + nome + '\'' +
+                ", dificuldade='" + dificuldade + '\'' +
+                ", imagem='" + imagem + '\'' +
+                ", fundo='" + fundo + '\'' +
+                '}';
+    }
+
     public void importarCenarios(String arquivo) {
         int escopo1 = arquivo.indexOf(this.nome);
-        escopo1 = arquivo.indexOf(":", escopo1) + 1;
+        escopo1 = arquivo.indexOf(";", escopo1) + 1;
         int escopo3 = arquivo.indexOf("Nivel ", escopo1);
         if (escopo3 == -1) {
             escopo3 = arquivo.length() - 1;
         }
 
         arquivo = arquivo.substring(escopo1, escopo3);
-        int escopo2 = arquivo.indexOf("Cenario ");
+        int escopo2 = arquivo.lastIndexOf("Cenario ");
         escopo3 = arquivo.indexOf(":", escopo2);
         int numCenarios = Integer.parseInt(arquivo.substring(escopo2 + 8, escopo3).trim());
         Cenario[] tempCenarios = new Cenario[numCenarios];
@@ -72,13 +81,13 @@ public class Nivel {
             String tempIntroducao = "";
             String tempCapituloLivro = "";
             Resposta[] tempRespostas = null;
-            int tempNivel = Integer.parseInt(this.nome.substring(5));
+            int tempNivel = Integer.parseInt(this.nome.substring(5).trim());
 
             escopo1 = arquivo.indexOf(tempNome) + tempNome.length() + 1;
-            escopo1 = arquivo.indexOf("Capitulo ", escopo1);
+            escopo2 = arquivo.indexOf("Capitulo ", escopo1);
             escopo3 = arquivo.indexOf(";", escopo2);
 
-            tempCapituloLivro = arquivo.substring(escopo1 + 9, escopo3).trim();
+            tempCapituloLivro = arquivo.substring(escopo2 + 8, escopo3).trim();
 
             escopo1 = escopo3 + 1;
             escopo2 = arquivo.indexOf("Resposta ", escopo1);

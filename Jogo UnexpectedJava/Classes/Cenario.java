@@ -63,6 +63,18 @@ public class Cenario {
         this.nivel = nivel;
     }
 
+    public String toString() {
+        StringBuilder retorno = new StringBuilder();
+        retorno.append("Cenario: ").append(this.nome).append("\n");
+        retorno.append("Introducao: ").append(this.introducao).append("\n");
+        retorno.append("Dificuldade: ").append(this.dificuldade).append("\n");
+        retorno.append("Capitulo Livro: ").append(this.capituloLivro).append("\n");
+        retorno.append("Nivel: ").append(this.nivel).append("\n");
+        
+        
+        return retorno.toString();
+    }
+
     public void importarRespostas(String arquivo) {
         int escopo1 = arquivo.indexOf("Nivel " + this.nivel);
         escopo1 = arquivo.indexOf(this.nome, escopo1);
@@ -93,8 +105,7 @@ public class Cenario {
             String tempResposta = "";
             String tempConclusao = "";
             escopo1 = arquivo.indexOf("Resposta " + (i + 1) + ":");
-            decalagem = "Resposta " + (i + 1) + ":";
-            escopo1 = escopo1 + decalagem.length() + 1;
+            escopo1 = arquivo.indexOf("\n", escopo1);
             escopo2 = arquivo.indexOf("Conclusao", escopo1);
             if (i + 2 <= numRespostas) {
                 escopo3 = arquivo.indexOf("Resposta " + (i + 2), escopo1);

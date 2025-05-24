@@ -5,6 +5,9 @@ public class Niveis {
         this.listaNiveis = listaNiveis;
     }
 
+    public Niveis() {
+    }
+
     public Nivel[] getListaNiveis() {
         return listaNiveis;
     }
@@ -15,7 +18,7 @@ public class Niveis {
 
     public void importarNiveis(String arquivo) {
         int escopo1 = arquivo.lastIndexOf("Nivel ");
-        int escopo2 = arquivo.indexOf(":", escopo1);
+        int escopo2 = arquivo.indexOf(";", escopo1);
         int numNiveis = Integer.parseInt(arquivo.substring(escopo1 + 6, escopo2).trim());
 
         Nivel[] tempNiveis = new Nivel[numNiveis];

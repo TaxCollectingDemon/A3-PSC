@@ -34,11 +34,10 @@ public class Resposta {
     }
 
     public String toString() {
-        return "Resposta{" +
-                "resposta='" + resposta + '\'' +
-                ", correta=" + correta +
-                ", conclusao='" + conclusao + '\'' +
-                '}';
+        return "Resposta: \n" +
+                "resposta= " + resposta + '\n' +
+                "correta= " + correta + '\n' +
+                "conclusao= " + conclusao + '\n';
     }
 
 }
