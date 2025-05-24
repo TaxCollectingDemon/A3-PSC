@@ -105,7 +105,7 @@ public class Cenario {
             String tempResposta = "";
             String tempConclusao = "";
             escopo1 = arquivo.indexOf("Resposta " + (i + 1) + ":");
-            escopo1 = arquivo.indexOf("\n", escopo1);
+            escopo1 = escopo1 + ("Resposta " + (i + 1) + ":").length();
             escopo2 = arquivo.indexOf("Conclusao", escopo1);
             if (i + 2 <= numRespostas) {
                 escopo3 = arquivo.indexOf("Resposta " + (i + 2), escopo1);
@@ -116,6 +116,7 @@ public class Cenario {
             if (arquivo.indexOf("Correta", escopo1, escopo1 + 8) != -1) {
                 tempCorreta = true;
             }
+            escopo1 = arquivo.indexOf("\n", escopo1);
             tempResposta = arquivo.substring(escopo1, escopo2).trim();
             tempConclusao = arquivo.substring(escopo2 + 10, escopo3).trim();
             tempRespostas[i] = new Resposta(tempResposta, tempCorreta, tempConclusao);
