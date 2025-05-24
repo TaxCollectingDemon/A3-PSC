@@ -7,11 +7,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Working dir = " + System.getProperty("user.dir"));
-
         Niveis niveis = new Niveis();
         try (
-            FileReader arquivoScan = new FileReader("JogoArquivos-texto\\modelo-cenarios.txt");
+            FileReader arquivoScan = new FileReader("Jogo-UnexpectedJava\\Arquivos-texto\\modelo-cenarios.txt");
             BufferedReader arquivo = new BufferedReader(arquivoScan)
         ) {
             StringBuilder conteudo = new StringBuilder();
