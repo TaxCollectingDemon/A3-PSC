@@ -1,3 +1,0 @@
-Introducao
-A narrativa se desenvolve num futuro distante (em torno de 2100), em que Astra e Neo são amigos de infância enfrentando problemas do dia a dia com Java.  
-Nas escolas do século XXII, já é ensinado como opcional em projeto de vida e no ensino médio, na grade curricular de exatas, programação em Java. A partir disso, Astra e Neo resolvem problemas dentro e fora da escola usando Java, como está para acontecer agora...
