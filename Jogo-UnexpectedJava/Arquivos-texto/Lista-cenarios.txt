@@ -26,7 +26,7 @@ Conclusao
 O robô quebra tudo.
 
 Cenario 2: Capitulo 2;
-
+Eles estão voltando para casa, quando chegam em rua com um semáforo, param na faixa de pedestre para atravessar… porém as cores começam a alterar de forma aleatória sem sentido. Para que possam resolver esse problema, acessam o terminal do semáforo, abrem o código fonte e veem o erro:
 
 Resposta 1: Correta
 Astra e Neo fazem x
