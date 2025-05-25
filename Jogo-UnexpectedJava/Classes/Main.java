@@ -10,14 +10,16 @@ public class Main {
 
         System.out.println("Bem-vindo ao Jogo Unexpected Java!");
 
-        
+
         Thread.sleep(1500);
         
         System.out.println("Carregando os níveis do jogo...");
         Niveis niveis = new Niveis();
         try (
             FileReader arquivoScan = new FileReader("Jogo-UnexpectedJava\\Arquivos-texto\\modelo-cenarios.txt");
-            BufferedReader arquivo = new BufferedReader(arquivoScan)
+            BufferedReader arquivo = new BufferedReader(arquivoScan);
+            FileReader introScan = new FileReader("Jogo-UnexpectedJava\\Arquivos-texto\\Introducao.txt");
+            BufferedReader introducao = new BufferedReader(introScan);
         ) {
             StringBuilder conteudo = new StringBuilder();
             String line = arquivo.readLine();
@@ -27,9 +29,26 @@ public class Main {
             }
             niveis.importarNiveis(conteudo.toString());
 
+            StringBuilder conteudoIntro = new StringBuilder();
+            String lineIntro = introducao.readLine();
+            while (lineIntro != null) {
+                conteudoIntro.append(lineIntro).append("\n");
+                lineIntro = introducao.readLine();
+            }
+
             Thread.sleep(2000);
 
             System.out.println("Níveis carregados com sucesso!");
+            System.out.println();
+            System.out.println("Desejas ler a introdução para a história do jogo?");
+            System.out.println("Digite 'S' para aceitar, ou qualquer outra tecla para recusar.");
+            String resposta = scanner.nextLine().toUpperCase();
+            if (resposta.equals("S")) {
+                System.out.println(conteudoIntro + "\n");
+                Thread.sleep(1500);
+            } else {
+                System.out.println("Ok, vamos começar o jogo!");
+            }
             System.out.println();
 
             Thread.sleep(500);
@@ -38,6 +57,7 @@ public class Main {
             Pontuacao pontuacao = new Pontuacao();
 
             for (Nivel nivel : niveis.getListaNiveis()) {
+                System.out.println(nivel.getDificuldade());
 
                 System.out.println(nivel.getNome());
                 System.out.println("Dificuldade: " + nivel.getDificuldade());
@@ -56,24 +76,25 @@ public class Main {
 
                 Resposta[] respostasRandom = Embaralhar.embaralharRespostas(cenario.getRespostas());
 
-                System.out.println("Respostas:");
-                Thread.sleep(100);
-                System.out.println("A: " + respostasRandom[0].getResposta());
-                Thread.sleep(100);
-                System.out.println("B: " + respostasRandom[1].getResposta());
-                Thread.sleep(100);
-                System.out.println("C: " + respostasRandom[2].getResposta());
-                Thread.sleep(100);
-                System.out.println("D: " + respostasRandom[3].getResposta());
-                Thread.sleep(100);
-                System.out.println();
-                System.out.print("Para responder, digite a letra correspondente: ");
-
-                String respostaUsuario = scanner.nextLine().toUpperCase();
                 boolean respostaCorreta = false;
                 boolean respostaValida = false;
                 int conclusao = 0;
                 while (respostaValida == false) {
+                    System.out.println("Respostas:");
+                    Thread.sleep(100);
+                    System.out.println("A: " + respostasRandom[0].getResposta());
+                    Thread.sleep(100);
+                    System.out.println("B: " + respostasRandom[1].getResposta());
+                    Thread.sleep(100);
+                    System.out.println("C: " + respostasRandom[2].getResposta());
+                    Thread.sleep(100);
+                    System.out.println("D: " + respostasRandom[3].getResposta());
+                    Thread.sleep(100);
+                    System.out.println();
+                    System.out.print("Para responder, digite a letra correspondente: ");
+                    String respostaUsuario = scanner.nextLine().toUpperCase();
+                    Thread.sleep(500);
+
                     switch (respostaUsuario) {
                         case "A":
                             respostaCorreta = respostasRandom[0].isCorreta();
@@ -105,7 +126,7 @@ public class Main {
                 if (respostaCorreta) {
                     System.out.println("Resposta correta!");
                     System.out.println(respostasRandom[conclusao].getConclusao());
-                    pontuacao.addPontos(pontuacao.getPontos(nivel.getDificuldade()));
+                    pontuacao.addPontos(pontuacao.calcPontos(nivel.getDificuldade()));
                     pontuacao.incAcerto();
                 } else {
                     System.out.println("Resposta incorreta.");
@@ -114,7 +135,24 @@ public class Main {
                 }
                 System.out.println();
                 System.out.println();
+
+                Thread.sleep(1000);
             }
+            System.out.println("Parabéns, você completou todos os níveis!");
+            System.out.println();
+
+            Thread.sleep(500);
+
+            System.out.println("Sua pontuação final é de: " + pontuacao.getPontos() + " pontos!");
+            Thread.sleep(300);
+            System.out.println("Você teve " + pontuacao.getAcertos() + " acertos e " + pontuacao.getErros() + " erros.");
+            Thread.sleep(300);
+            System.out.println("Seu ranking final é: " + pontuacao.getTitulo() + "!");
+            System.out.println();
+            Thread.sleep(300);
+            System.out.println("Obrigado por jogar!");
+            Thread.sleep(300);
+            System.out.println("Para jogar novamente, reinicie o programa.");
 
         } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());

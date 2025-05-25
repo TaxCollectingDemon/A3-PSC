@@ -11,20 +11,26 @@ public class Pontuacao {
         this.titulo = "";
     }
     
-    public int getPontos(String dificuldade) {
+    public int calcPontos(String dificuldade) {
+        int tempPontos = 0;
         switch (dificuldade) {
             case "Fácil":
-                pontos = pontos + 100;
+                 tempPontos = 100;
                 break;
             case "Médio":
-                pontos = pontos + 150;
+                tempPontos = 150;
                 break;
             case "Difícil":
-                pontos = pontos + 200;
+                tempPontos = 200;
                 break;
             default:
                 System.out.println("Dificuldade inválida.");
+                break;
         }
+        return tempPontos;
+    }
+
+    public int getPontos() {
         return pontos;
     }
 
