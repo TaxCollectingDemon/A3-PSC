@@ -521,7 +521,7 @@ Temperatura exibida corretamente 3 vezes.
 
 
 Nivel 4;
-Cenario 1: Capitulo 2;
+Cenario 1: Capitulo 2 e 9;
 Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida está registrando pontuações de várias partidas em um array. O problema ocorre quando a soma das pontuações ímpares gera uma exceção inesperada devido a uma divisão incorreta. Astra analisa o seguinte código:
 
 
@@ -556,7 +556,7 @@ Astra transforma soma em double, mas mantém divisor 0
 Conclusao
 Erro de divisão persiste.
 
-Cenario 2: Capitulo 2;
+Cenario 2: Capitulo 2 e 9;
 Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida começa a travar quando múltiplas pontuações pares são processadas, devido a um loop mal construído dentro de um array de pontuações. Astra examina o seguinte código:
 
 
@@ -592,7 +592,7 @@ Astra reduz manualmente o tamanho do array
 Conclusao
 Oculta o problema, mas não resolve a lógica de parada corretamente.
 
-Cenario 3: Capitulo 2;
+Cenario 3: Capitulo 2 e 9;
 Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida precisa converter a pontuação de várias partidas (valores double) para inteiros arredondados antes de exibir o ranking final. No entanto, o sistema atual apenas trunca os valores, o que afeta a justiça da competição. Astra verifica o seguinte trecho de código:
 
 
@@ -630,7 +630,7 @@ Astra usa Math.floor()
 Conclusao
 Todos os valores são arredondados para baixo, o que não resolve a questão da justiça.
 
-Cenário 4: Capítulo 2;
+Cenário 4: Capítulo 2 e 9;
 Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida registra a pontuação dos jogadores, e em caso de empate, deveria usar o tempo de conclusão da corrida para desempatar. No entanto, o código atual apenas compara as pontuações e não trata o tempo, o que gera empates incorretos. Astra analisa o seguinte código:
 
 
@@ -670,7 +670,7 @@ Astra soma pontuação e tempo
 Conclusão
 Combinação distorce o resultado, desconsiderando a lógica de desempate.
 
-Cenário 5: Capítulo 2;
+Cenário 5: Capítulo 2 e 9;
 Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução , o código precisa verificar se um jogador superou sua própria pontuação anterior. O problema ocorre porque o sistema sobrescreve a pontuação sem verificar se é maior, comprometendo o histórico do ranking. Astra revê o código abaixo:
 
 
