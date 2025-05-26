@@ -88,9 +88,8 @@ Conclusao
 O semáforo continua piscando da mesma maneira.
 
 Cenario 3: Capitulo 3;
-
-
-
+Eles estão indo às suas atividades extracurriculares, Astra vai para a aula de vôlei e Neo a aula de futebol, mas antes vão ao sistema da escola para liberar seus NovaBits (celulares do futuro), porém o sistema não os reconhece:
+        
 
 Resposta 1: Correta
 Substituir 'true' por 'false' em
