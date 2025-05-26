@@ -1,321 +1,4 @@
 Nivel 1;
-
-Cenario 1: Capitulo 2;
-Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, o sistema do estoque do pai de Astra precisa limitar a quantidade de cargas disponíveis, mas o loop atual nunca termina. Astra localiza o seguinte trecho de código:
-
-
-int carga = 0;
-while(carga >= 0) {
-    System.out.println("Distribuindo carga " + carga);
-    carga++;
-}
-
-
-Resposta 1: Incorreta
-Astra muda para carga--
-Conclusao
-O loop continua infinito.
-
-Resposta 2: Incorreta
-Astra muda para carga == 0
-Conclusao
-O loop não executa nada.
-
-Resposta 3: Correta
-Astra muda a condição para carga < 10
-Conclusao
-O sistema distribui até 10 cargas e para.
-
-Resposta 4: Incorreta
-Astra muda para for(int i = 0; i <= carga; i--)
-Conclusao
-Loop infinito.
-
-Cenario 2: Capitulo 2;
-Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, automóveis com diferentes capacidades precisam ser considerados. Astra encontra esse código:
-
-
-int peso = 700;
-while(peso < 1000) {
-    System.out.println("Produto aceito com peso: " + peso);
-    peso += 200;
-}
-
-
-Resposta 1: Correta
-Astra ajusta peso inicial para 200
-Conclusao
-Só produtos leves entram no loop.
-
-Resposta 2: Incorreta
-Astra muda para peso > 1000
-Conclusao
-Nada é impresso.
-
-Resposta 3: Incorreta
-Astra retira o incremento do peso
-Conclusao
-Loop infinito.
-
-Resposta 4: Incorreta
-Astra usa peso -= 100
-Conclusao
-Loop infinito de decremento.
-
-Cenario 3: Capitulo 2;
-Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, cargas precisam ser entregues antes de um horário. Astra vê o seguinte código:
-
-
-int horaAtual = 12;
-for(int horaEntrega = 13; horaEntrega <= 18; horaEntrega++) {
-    if(horaEntrega < horaAtual) {
-        System.out.println("Entrega atrasada");
-    }
-}
-
-
-Resposta 1: Incorreta
-Astra inverte a condição para horaEntrega > horaAtual
-Conclusao
-Mensagem não aparece.
-
-Resposta 2: Incorreta
-Astra usa while ao invés de for
-Conclusao
-Problema permanece.
-
-Resposta 3: Correta
-Astra ajusta horaAtual para 19
-Conclusao
-Todas as entregas marcadas serão tratadas como atrasadas.
-
-Resposta 4: Incorreta
-Astra usa horaEntrega == horaAtual
-Conclusao
-Apenas uma entrega é checada.
-
-Cenario 4: Capitulo 2;
-Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, verificação de combustível antes de seguir viagem. Astra vê esse código:
-
-
-int combustivel = 10;
-int distancia = 15;
-while(combustivel > distancia) {
-    System.out.println("Pode seguir viagem");
-    distancia--;
-}
-
-
-Resposta 1: Correta
-Astra troca > por >=
-Conclusao
-Agora pode seguir com combustível igual à distância.
-
-Resposta 2: Incorreta
-Astra troca combustivel e distancia de lugar
-Conclusao
-Erro de lógica.
-
-Resposta 3: Incorreta
-Astra aumenta a distância no loop
-Conclusao
-Nunca termina.
-
-Resposta 4: Incorreta
-Astra retira o while
-Conclusao
-Nada acontece.
-
-Cenario 5: Capitulo 2;
-Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, cargas com diferentes volumes. Astra precisa ajustar o seguinte código:
-
-
-int quantidade = 0;
-while(quantidade != 10) {
-    System.out.println("Adicionando item " + quantidade);
-    quantidade++;
-}
-
-
-Resposta 1: Incorreta
-Astra muda a condição para quantidade == 10
-Conclusao
-Loop não executa.
-
-Resposta 2: Correta
-Astra muda para quantidade < 10
-Conclusao
-Loop executa 10 vezes.
-
-Resposta 3: Incorreta
-Astra usa quantidade <= 10
-Conclusao
-Adiciona um item a mais.
-
-Resposta 4: Incorreta
-Astra retira quantidade++
-Conclusao
-Loop infinito.
-
-
-Nivel 2;
-Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização...
-
-Cenario 1: Capitulo 2;
-Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, sistema da casa de Neo não fecha janelas corretamente. Ele encontra este código:
-
-
-for(int i = 0; i <= 5; i++) {
-    if(i == 3) continue;
-    System.out.println("Janela " + i + " fechada");
-}
-
-
-Resposta 1: Correta
-Neo remove o continue
-Conclusao
-Todas janelas são fechadas.
-
-Resposta 2: Incorreta
-Neo muda para if(i != 3)
-Conclusao
-Janela 3 ainda não é fechada.
-
-Resposta 3: Incorreta
-Neo usa break
-Conclusao
-Para no meio do processo.
-
-Resposta 4: Incorreta
-Neo troca <= por ==
-Conclusao
-Só uma janela é verificada.
-
-Cenario 2: Capitulo 2;
-Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, luzes não desligam corretamente. Neo verifica:
-
-
-
-int luz = 1;
-while(luz < 4) {
-    if(luz == 2) break;
-    System.out.println("Desligando luz " + luz);
-    luz++;
-}
-
-
-Resposta 1: Correta
-Neo remove o break
-Conclusao
-Todas luzes desligam.
-
-Resposta 2: Incorreta
-Neo usa luz--
-Conclusao
-Loop infinito.
-
-Resposta 3: Incorreta
-Neo muda para luz <= 4
-Conclusao
-Mensagem extra.
-
-Resposta 4: Incorreta
-Neo troca < por ==
-Conclusao
-Loop não executa.
-
-Cenario 3: Capitulo 2;
-Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, aparelhos não ligam. Neo vê o código:
-
-
-for(int i = 0; i < 3; i++) {
-    if(i == 1) return;
-    System.out.println("Ligando aparelho " + i);
-}
-
-
-Resposta 1: Correta
-Neo substitui return por continue
-Conclusao
-Aparelhos ligam normalmente, exceto o 1.
-
-Resposta 2: Incorreta
-Neo mantém o return
-Conclusao
-Só o primeiro liga.
-
-Resposta 3: Incorreta
-Neo troca for por while sem incremento
-Conclusao
-Loop infinito.
-
-Resposta 4: Incorreta
-Neo adiciona break
-Conclusao
-Interrompe cedo demais.
-
-Cenario 4: Capitulo 2;
-Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, portas não fecham. Neo vê:
-
-
-int porta = 0;
-while(porta < 3) {
-    System.out.println("Fechando porta " + porta);
-    porta += 2;
-}
-
-
-Resposta 1: Incorreta
-Neo muda porta += 3
-Conclusao
-Só uma porta fecha.
-
-Resposta 2: Correta
-Neo muda para porta++
-Conclusao
-Todas portas são fechadas.
-
-Resposta 3: Incorreta
-Neo muda para porta = porta - 1
-Conclusao
-Loop infinito.
-
-Resposta 4: Incorreta
-Neo tira a linha do incremento
-Conclusao
-Loop infinito.
-
-Cenario 5: Capitulo 2;
-Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, informações incorretas. Neo encontra:
-
-
-for(int i = 0; i < 3; i++) {
-    System.out.println("Temperatura: 22");
-    break;
-}
-
-
-Resposta 1: Incorreta
-Neo tira o for
-Conclusao
-Executa só uma vez.
-
-Resposta 2: Incorreta
-Neo mantém o break
-Conclusao
-Só uma vez executa.
-
-Resposta 3: Incorreta
-Neo muda para while(i < 3)
-Conclusao
-Erro de compilação.
-
-Resposta 4: Correta
-Neo retira o break
-Conclusao
-Temperatura exibida corretamente 3 vezes.
-
-Nivel 3
 Cenario 1: Capitulo 2;
 Eles estão almoçando num restaurante em que, invés de as pessoas se servirem, robôs servem elas no buffet com o que pedem. Já comendo e conversando na mesa, veem que um dos robôs está apresentando falhas no momento de servir o prato, até que ele tem uma falha total e começa a jogar os pratos e alimentos nas pessoas, nossos personagens se deparam com essa situação e vão correndo ao gerente para perguntar: “em qual linguagem aquele robô está programado?” gerente: “Está programado em Java mas ninguém aqui do restaurante sabe Java além do nosso técnico que está folga!”, logo eles vão em direção ao robô, desviando de todos os pratos e alimentos jogados neles, chegam por trás, conseguem abrir uma portinhola de entrada para o seu hardware, Neo pluga seu NovaBit (celular do futuro) a uma entrada da placa-mãe e acessa o código-fonte do robô, identificando o erro no código, Neo terá que tomar uma decisão de como resolver o problema:
 Qual opção Neo deve executar no código-fonte para solucionar o seguinte problema:
@@ -520,6 +203,437 @@ Substituir 'troco' por 'PRECO_LANCHE' em
 System.out.println("Troco a ser devolvido: R$ " + troco);
 Conclusao
 A máquina agora sempre oferece troco igual ao valor da compra.
+
+Nivel 2;
+Cenario 1: Capitulo 2;
+Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, o sistema do estoque do pai de Astra precisa limitar a quantidade de cargas disponíveis, mas o loop atual nunca termina. Astra localiza o seguinte trecho de código:
+
+
+int carga = 0;
+while(carga >= 0) {
+    System.out.println("Distribuindo carga " + carga);
+    carga++;
+}
+
+
+Resposta 1: Incorreta
+Astra muda para carga--
+Conclusao
+O loop continua infinito.
+
+Resposta 2: Incorreta
+Astra muda para carga == 0
+Conclusao
+O loop não executa nada.
+
+Resposta 3: Correta
+Astra muda a condição para carga < 10
+Conclusao
+O sistema distribui até 10 cargas e para.
+
+Resposta 4: Incorreta
+Astra muda para for(int i = 0; i <= carga; i--)
+Conclusao
+Loop infinito.
+
+Cenario 2: Capitulo 2;
+Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, automóveis com diferentes capacidades precisam ser considerados. Astra encontra esse código:
+
+
+int peso = 700;
+while(peso < 1000) {
+    System.out.println("Produto aceito com peso: " + peso);
+    peso += 200;
+}
+
+
+Resposta 1: Correta
+Astra ajusta peso inicial para 200
+Conclusao
+Só produtos leves entram no loop.
+
+Resposta 2: Incorreta
+Astra muda para peso > 1000
+Conclusao
+Nada é impresso.
+
+Resposta 3: Incorreta
+Astra retira o incremento do peso
+Conclusao
+Loop infinito.
+
+Resposta 4: Incorreta
+Astra usa peso -= 100
+Conclusao
+Loop infinito de decremento.
+
+Cenario 3: Capitulo 2;
+Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, cargas precisam ser entregues antes de um horário. Astra vê o seguinte código:
+
+
+int horaAtual = 12;
+for(int horaEntrega = 13; horaEntrega <= 18; horaEntrega++) {
+    if(horaEntrega < horaAtual) {
+        System.out.println("Entrega atrasada");
+    }
+}
+
+
+Resposta 1: Incorreta
+Astra inverte a condição para horaEntrega > horaAtual
+Conclusao
+Mensagem não aparece.
+
+Resposta 2: Incorreta
+Astra usa while ao invés de for
+Conclusao
+Problema permanece.
+
+Resposta 3: Correta
+Astra ajusta horaAtual para 19
+Conclusao
+Todas as entregas marcadas serão tratadas como atrasadas.
+
+Resposta 4: Incorreta
+Astra usa horaEntrega == horaAtual
+Conclusao
+Apenas uma entrega é checada.
+
+Cenario 4: Capitulo 2;
+Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, verificação de combustível antes de seguir viagem. Astra vê esse código:
+
+
+int combustivel = 10;
+int distancia = 15;
+while(combustivel > distancia) {
+    System.out.println("Pode seguir viagem");
+    distancia--;
+}
+
+
+Resposta 1: Correta
+Astra troca > por >=
+Conclusao
+Agora pode seguir com combustível igual à distância.
+
+Resposta 2: Incorreta
+Astra troca combustivel e distancia de lugar
+Conclusao
+Erro de lógica.
+
+Resposta 3: Incorreta
+Astra aumenta a distância no loop
+Conclusao
+Nunca termina.
+
+Resposta 4: Incorreta
+Astra retira o while
+Conclusao
+Nada acontece.
+
+Cenario 5: Capitulo 2;
+Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, cargas com diferentes volumes. Astra precisa ajustar o seguinte código:
+
+
+int quantidade = 0;
+while(quantidade != 10) {
+    System.out.println("Adicionando item " + quantidade);
+    quantidade++;
+}
+
+
+Resposta 1: Incorreta
+Astra muda a condição para quantidade == 10
+Conclusao
+Loop não executa.
+
+Resposta 2: Correta
+Astra muda para quantidade < 10
+Conclusao
+Loop executa 10 vezes.
+
+Resposta 3: Incorreta
+Astra usa quantidade <= 10
+Conclusao
+Adiciona um item a mais.
+
+Resposta 4: Incorreta
+Astra retira quantidade++
+Conclusao
+Loop infinito.
+
+Nivel 3
+Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização...
+
+Cenario 1: Capitulo 2;
+Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, sistema da casa de Neo não fecha janelas corretamente. Ele encontra este código:
+
+
+for(int i = 0; i <= 5; i++) {
+    if(i == 3) continue;
+    System.out.println("Janela " + i + " fechada");
+}
+
+
+Resposta 1: Correta
+Neo remove o continue
+Conclusao
+Todas janelas são fechadas.
+
+Resposta 2: Incorreta
+Neo muda para if(i != 3)
+Conclusao
+Janela 3 ainda não é fechada.
+
+Resposta 3: Incorreta
+Neo usa break
+Conclusao
+Para no meio do processo.
+
+Resposta 4: Incorreta
+Neo troca <= por ==
+Conclusao
+Só uma janela é verificada.
+
+Cenario 2: Capitulo 2;
+Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, luzes não desligam corretamente. Neo verifica:
+
+
+
+int luz = 1;
+while(luz < 4) {
+    if(luz == 2) break;
+    System.out.println("Desligando luz " + luz);
+    luz++;
+}
+
+
+Resposta 1: Correta
+Neo remove o break
+Conclusao
+Todas luzes desligam.
+
+Resposta 2: Incorreta
+Neo usa luz--
+Conclusao
+Loop infinito.
+
+Resposta 3: Incorreta
+Neo muda para luz <= 4
+Conclusao
+Mensagem extra.
+
+Resposta 4: Incorreta
+Neo troca < por ==
+Conclusao
+Loop não executa.
+
+Cenario 3: Capitulo 2;
+Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, aparelhos não ligam. Neo vê o código:
+
+
+for(int i = 0; i < 3; i++) {
+    if(i == 1) return;
+    System.out.println("Ligando aparelho " + i);
+}
+
+
+Resposta 1: Correta
+Neo substitui return por continue
+Conclusao
+Aparelhos ligam normalmente, exceto o 1.
+
+Resposta 2: Incorreta
+Neo mantém o return
+Conclusao
+Só o primeiro liga.
+
+Resposta 3: Incorreta
+Neo troca for por while sem incremento
+Conclusao
+Loop infinito.
+
+Resposta 4: Incorreta
+Neo adiciona break
+Conclusao
+Interrompe cedo demais.
+
+Cenario 4: Capitulo 2;
+Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, portas não fecham. Neo vê:
+
+
+int porta = 0;
+while(porta < 3) {
+    System.out.println("Fechando porta " + porta);
+    porta += 2;
+}
+
+
+Resposta 1: Incorreta
+Neo muda porta += 3
+Conclusao
+Só uma porta fecha.
+
+Resposta 2: Correta
+Neo muda para porta++
+Conclusao
+Todas portas são fechadas.
+
+Resposta 3: Incorreta
+Neo muda para porta = porta - 1
+Conclusao
+Loop infinito.
+
+Resposta 4: Incorreta
+Neo tira a linha do incremento
+Conclusao
+Loop infinito.
+
+Cenario 5: Capitulo 2;
+Já resolvido esse problema no estoque do pai de Astra, agora, Neo é que irá se deparar com uma situação nada agradável… A casa em que mora com os pais é automatizada pelo sistema da google, algo comum nessa época, que está com mal funcionamento, mesmo Neo e seu pai tentando chamar o serviço de manutenção, não tiveram resposta… então terão que resolver sozinhos. Neo abre o aplicativo da google home, abre o código-fonte e já identifica alguns problemas da última atualização, informações incorretas. Neo encontra:
+
+
+for(int i = 0; i < 3; i++) {
+    System.out.println("Temperatura: 22");
+    break;
+}
+
+
+Resposta 1: Incorreta
+Neo tira o for
+Conclusao
+Executa só uma vez.
+
+Resposta 2: Incorreta
+Neo mantém o break
+Conclusao
+Só uma vez executa.
+
+Resposta 3: Incorreta
+Neo muda para while(i < 3)
+Conclusao
+Erro de compilação.
+
+Resposta 4: Correta
+Neo retira o break
+Conclusao
+Temperatura exibida corretamente 3 vezes.
+
+
+Nivel 4;
+Cenario 1: Capitulo 2;
+Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida está registrando pontuações de várias partidas em um array. O problema ocorre quando a soma das pontuações ímpares gera uma exceção inesperada devido a uma divisão incorreta. Astra analisa o seguinte código:
+
+java
+int[] pontuacoes = {87, 92, 75, 64, 89};
+int soma = 0;
+for(int i = 0; i < pontuacoes.length; i++) {
+    if(pontuacoes[i] % 2 != 0) {
+        soma += pontuacoes[i];
+    }
+}
+int media = soma / 0;
+System.out.println("Média de ímpares: " + media);
+
+
+Resposta 1: Incorreta
+Astra muda o divisor para 1
+Conclusao
+Evita erro, mas resultado não representa uma média.
+
+Resposta 2: Correta
+Astra cria um contador de elementos ímpares e divide por ele
+Conclusao
+Média correta das pontuações ímpares é calculada.
+
+Resposta 3: Incorreta
+Astra remove a divisão e imprime a soma
+Conclusao
+Sem erro, mas objetivo não atingido.
+
+Resposta 4: Incorreta
+Astra transforma soma em double, mas mantém divisor 0
+Conclusao
+Erro de divisão persiste.
+
+Cenario 2: Capitulo 2;
+Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida começa a travar quando múltiplas pontuações pares são processadas, devido a um loop mal construído dentro de um array de pontuações. Astra examina o seguinte código:
+
+
+int[] pontuacoes = {80, 100, 76, 92, 88};
+int i = 0;
+while(pontuacoes[i] % 2 == 0) {
+    System.out.println("Pontuação par encontrada: " + pontuacoes[i]);
+    i++;
+    System.out.println("Processando...");
+}
+System.out.println("Fim do processamento.");
+
+
+O programa trava com ArrayIndexOutOfBoundsException quando tenta acessar um índice inexistente. Astra precisa corrigir o loop.
+
+Resposta 1: Correta
+Astra adiciona a condição i < pontuacoes.length no while
+Conclusao
+Evita acesso fora do array e permite o processamento seguro.
+
+Resposta 2: Incorreta
+Astra muda o while para um for sem validar os valores
+Conclusao
+Executa para todos, mesmo não pares.
+
+Resposta 3: Incorreta
+Astra substitui % 2 == 0 por true
+Conclusao
+Loop infinito.
+
+Resposta 4: Incorreta
+Astra reduz manualmente o tamanho do array
+Conclusao
+Oculta o problema, mas não resolve a lógica de parada corretamente.
+
+Cenario 3: Capitulo 2;
+Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida precisa converter a pontuação de várias partidas (valores double) para inteiros arredondados antes de exibir o ranking final. No entanto, o sistema atual apenas trunca os valores, o que afeta a justiça da competição. Astra verifica o seguinte trecho de código:
+
+java
+double[] pontuacoes = {123.7, 145.2, 119.9, 130.4};
+int[] rankingFinal = new int[pontuacoes.length];
+
+for(int i = 0; i < pontuacoes.length; i++) {
+    rankingFinal[i] = (int) pontuacoes[i];
+    System.out.println("Jogador " + (i+1) + ": " + rankingFinal[i]);
+}
+
+
+O código apenas trunca os valores, desconsiderando arredondamento justo. Astra precisa corrigir a lógica de conversão.
+
+Resposta 1: Incorreta
+Astra mantém o cast direto para int
+Conclusao
+Valores continuam truncados.
+
+Resposta 2: Incorreta
+Astra transforma os valores em string antes de exibir
+Conclusao
+Exibe, mas não resolve o problema da precisão.
+
+Resposta 3: Correta
+Astra usa Math.round() para arredondar corretamente:
+
+java
+rankingFinal[i] = (int) Math.round(pontuacoes[i]);
+
+
+Conclusao
+Ranking fica mais justo com valores arredondados.
+
+Resposta 4: Incorreta
+Astra usa Math.floor()
+Conclusao
+Todos os valores são arredondados para baixo, o que não resolve a questão da justiça.
+
+
+
 
 Nivel 5;
 Cenario 1: Capitulo 3 e 5;
