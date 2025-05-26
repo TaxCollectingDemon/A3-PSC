@@ -203,9 +203,6 @@ Conclusao
 A máquina agora sempre oferece troco igual ao valor da compra.
 
 Nivel 2;
-Capítulo 2;
-Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar...
-
 Cenario 1: Capitulo 2;
 Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar, o sistema do estoque do pai de Astra precisa limitar a quantidade de cargas disponíveis, mas o loop atual nunca termina. Astra localiza o seguinte trecho de código:
 
