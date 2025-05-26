@@ -114,3 +114,31 @@ Substituir 'String alvo' por 'mesa' em
 String alvo = cliente;
 Conclusao
 O robô não compila o código, pois não existe variável 'alvo'.
+
+Cenario 4: Capitulo 2;
+Após suas aulas, Astra e Neo pegam um ônibus para voltar para casa, Astra consegue passar na catraca normalmente com seu reconhecimento facial e pagou também sua meia-entrada de estudante, Neo não consegue passar na catraca pelo fato de sua meia-entrada estar zerada, porém com uma nova regra, você pode passar 1 entrada negativa para que quando chegar ao seu destino, recarregue suas entradas. Assim, Neo reconhece o erro no código:
+
+
+Resposta 1: Correta
+Substituir 'true' por 'false' em
+if (pratoNaMao == true)
+Conclusao
+O robô parou de servir os clientes completamente.
+
+Resposta 2: Incorreta
+Substituir 'cliente' por 'mesa' em
+String alvo = cliente;
+Conclusao
+O robô volta a servir os pratos nas mesas normalmente.
+
+Resposta 3: Incorreta
+Substituir 'alvo' por 'mesa' em 
+colocarprato(alvo);
+Conclusao
+O robô fica tentando servir as mesas mesmo quando não tem prato a servir e não consegue terminar as tarefas.
+
+Resposta 4: Incorreta
+Substituir 'String alvo' por 'mesa' em
+String alvo = cliente;
+Conclusao
+O robô não compila o código, pois não existe variável 'alvo'.
