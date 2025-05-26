@@ -518,3 +518,321 @@ Resposta 4: Correta
 Neo retira o break
 Conclusao
 Temperatura exibida corretamente 3 vezes.
+
+Nivel 5;
+Cenario 1: Capitulo 3 e 5;
+Após curtirem o aniversário e Astra ter solucionado o problema na programação da máquina de corrida, no outro dia, já na escola estavam tendo aula como sempre e de repente… o sistema da escola entra em um “surto”, fechando e abrindo portas e janelas, desligando e ligando luzes, computadores, tv’s… todos ficam assustados, a equipe de coordenação vai amparar os alunos e professores, já a equipe da direção vão ao quadro de energia da escola e outros estão ligando para o serviço técnico de manutenção, até que não conseguem acessar o quadro e todos ficam presos nas partes da escola em que estavam no momento do surto. Assim, o sistema da escola se apresenta como uma inteligência artificial independente e que quer tomar o controle da escola para máxima eficiência de todos… Neo e Astra se deparam com toda essa situação e a solução para esse desastre é única, durante o surto do sistema da escola (que se autodenomina Skynet), todos os dispositivos estão sendo controlados de forma autônoma. Astra e Neo descobrem que os objetos usados para controlar os dispositivos estão instanciados de forma incorreta, comprometendo a lógica do sistema de comando central. Ao acessar o código-fonte, encontram a seguinte estrutura:
+
+
+public class Dispositivo {
+    private String nome;
+    private boolean status;
+
+    public Dispositivo(String nome) {
+        this.nome = nome;
+        this.status = false;
+    }
+
+    public void ligar() {
+        status = true;
+        System.out.println(nome + " ligado.");
+    }
+
+    public void desligar() {
+        status = false;
+        System.out.println(nome + " desligado.");
+    }
+}
+
+// Classe principal
+public class Escola {
+    public static void main(String[] args) {
+        Dispositivo[] dispositivos = new Dispositivo[3];
+        dispositivos[0].ligar();
+        dispositivos[1].desligar();
+        dispositivos[2].ligar();
+    }
+}
+
+
+Ao executar o código, ocorre um erro grave e o sistema da escola entra em loop descontrolado. Astra percebe o erro de instanciacão e precisa tomar uma decisão.
+
+Resposta 1: Incorreta
+Astra remove os dispositivos do array
+Conclusao
+Sistema continua tentando acessar objetos inexistentes, gerando NullPointerException.
+
+Resposta 2: Correta
+Astra instancia corretamente os objetos no array com:
+
+
+Dispositivo[] dispositivos = {
+    new Dispositivo("Porta Principal"),
+    new Dispositivo("Luzes do Corredor"),
+    new Dispositivo("Sistema de Som")
+};
+
+
+Conclusao
+Todos dispositivos são instanciados corretamente e comandos funcionam normalmente.
+
+Resposta 3: Incorreta
+Astra tenta acessar o array antes de instanciar
+Conclusao
+Mesmo erro de NullPointerException persiste.
+
+Resposta 4: Incorreta
+Astra inicializa o array com null manualmente
+Conclusao
+Problema permanece sem alteração no comportamento.
+
+Cenario 2: Capitulo 3 e 5;
+Após curtirem o aniversário e Astra ter solucionado o problema na programação da máquina de corrida, no outro dia, já na escola estavam tendo aula como sempre e de repente… o sistema da escola entra em um “surto”, fechando e abrindo portas e janelas, desligando e ligando luzes, computadores, tv’s… todos ficam assustados, a equipe de coordenação vai amparar os alunos e professores, já a equipe da direção vão ao quadro de energia da escola e outros estão ligando para o serviço técnico de manutenção, até que não conseguem acessar o quadro e todos ficam presos nas partes da escola em que estavam no momento do surto. Assim, o sistema da escola se apresenta como uma inteligência artificial independente e que quer tomar o controle da escola para máxima eficiência de todos… Neo e Astra se deparam com toda essa situação e a solução para esse desastre é única, após corrigirem os dispositivos principais, Astra e Neo percebem que o segundo objeto do sistema, responsável por registrar a temperatura em diferentes salas da escola, está apresentando leituras inconsistentes. Eles descobrem que a classe SensorTemperatura está sendo manipulada por referências duplicadas, e alterações feitas em uma instância afetam outra inesperadamente. O código atual é o seguinte:
+
+
+public class SensorTemperatura {
+    private String sala;
+    private double temperatura;
+
+    public SensorTemperatura(String sala) {
+        this.sala = sala;
+        this.temperatura = 25.0;
+    }
+
+    public void ajustarTemperatura(double novaTemp) {
+        this.temperatura = novaTemp;
+    }
+
+    public void exibir() {
+        System.out.println("Sala: " + sala + ", Temperatura: " + temperatura);
+    }
+}
+
+public class Escola {
+    public static void main(String[] args) {
+        SensorTemperatura sensor1 = new SensorTemperatura("Laboratório");
+        SensorTemperatura sensor2 = sensor1;
+
+        sensor1.ajustarTemperatura(19.5);
+        sensor2.exibir();
+    }
+}
+
+
+Neo percebe que o sensor da sala de aula, que deveria estar separado, está sofrendo interferência da alteração no sensor do laboratório. Qual seria a forma correta de lidar com esse tipo de situação em Java, mantendo objetos independentes?
+
+Resposta 1: Incorreta
+Neo cria um novo sensor2, mas copia os dados de sensor1 manualmente
+Conclusao
+As instâncias continuam ligadas indiretamente por atributos referenciados.
+
+Resposta 2: Incorreta
+Neo utiliza clone() sem implementar Cloneable corretamente
+Conclusao
+Lança exceção em tempo de execução.
+
+Resposta 3: Incorreta
+Neo define sensor2 como null antes de instanciar novamente
+Conclusao
+Causa NullPointerException se acessar antes da reinicialização.
+
+Resposta 4: Correta
+Neo cria uma nova instância separada para sensor2
+SensorTemperatura sensor2 = new SensorTemperatura("Sala de Aula");
+Conclusao
+Cada sensor opera de forma independente, refletindo temperaturas distintas corretamente.
+
+Cenario 3: Capitulo 3 e 5;
+Após curtirem o aniversário e Astra ter solucionado o problema na programação da máquina de corrida, no outro dia, já na escola estavam tendo aula como sempre e de repente… o sistema da escola entra em um “surto”, fechando e abrindo portas e janelas, desligando e ligando luzes, computadores, tv’s… todos ficam assustados, a equipe de coordenação vai amparar os alunos e professores, já a equipe da direção vão ao quadro de energia da escola e outros estão ligando para o serviço técnico de manutenção, até que não conseguem acessar o quadro e todos ficam presos nas partes da escola em que estavam no momento do surto. Assim, o sistema da escola se apresenta como uma inteligência artificial independente e que quer tomar o controle da escola para máxima eficiência de todos… Neo e Astra se deparam com toda essa situação e a solução para esse desastre é única, com a temperatura estabilizada, Astra e Neo passam a investigar o terceiro objeto do sistema: o módulo de controle de acesso, responsável por registrar entradas e saídas de pessoas da escola. Eles descobrem que múltiplas instâncias do mesmo objeto estão sendo usadas em diferentes pontos do código, mas os acessos não são centralizados, levando a registros duplicados ou perdidos. O código a seguir demonstra o problema:
+
+
+public class ControleAcesso {
+    private int totalEntradas;
+
+    public void registrarEntrada() {
+        totalEntradas++;
+    }
+
+    public void exibirTotal() {
+        System.out.println("Total de entradas: " + totalEntradas);
+    }
+}
+
+public class Escola {
+    public static void main(String[] args) {
+        ControleAcesso acesso1 = new ControleAcesso();
+        ControleAcesso acesso2 = new ControleAcesso();
+
+        acesso1.registrarEntrada();
+        acesso2.registrarEntrada();
+        acesso1.exibirTotal();
+        acesso2.exibirTotal();
+    }
+}
+
+
+A saída mostra que cada objeto mantém um contador independente, o que invalida a contagem real. Como Astra pode resolver isso garantindo que todos os acessos compartilhem o mesmo controle centralizado?
+
+Resposta 1: Incorreta
+Astra transforma totalEntradas em estático, mas esquece de ajustar os métodos
+Conclusao
+Compila, mas não acessa corretamente o valor compartilhado.
+
+Resposta 2: Incorreta
+Astra usa variáveis globais fora da classe ControleAcesso
+Conclusao
+Foge da orientação a objetos, causando dependências perigosas.
+
+Resposta 3: Correta
+Astra transforma o atributo e os métodos em estáticos:
+
+
+public class ControleAcesso {
+    private static int totalEntradas;
+
+    public static void registrarEntrada() {
+        totalEntradas++;
+    }
+
+    public static void exibirTotal() {
+        System.out.println("Total de entradas: " + totalEntradas);
+    }
+}
+
+
+Conclusao
+O contador passa a ser compartilhado por todas as chamadas, registrando corretamente.
+
+Resposta 4: Incorreta
+Astra cria um array de objetos ControleAcesso e soma seus valores
+Conclusao
+Continua tendo contagens separadas, apenas somadas manualmente.
+
+Cenario 4: Capitulo 3 e 5;
+Após curtirem o aniversário e Astra ter solucionado o problema na programação da máquina de corrida, no outro dia, já na escola estavam tendo aula como sempre e de repente… o sistema da escola entra em um “surto”, fechando e abrindo portas e janelas, desligando e ligando luzes, computadores, tv’s… todos ficam assustados, a equipe de coordenação vai amparar os alunos e professores, já a equipe da direção vão ao quadro de energia da escola e outros estão ligando para o serviço técnico de manutenção, até que não conseguem acessar o quadro e todos ficam presos nas partes da escola em que estavam no momento do surto. Assim, o sistema da escola se apresenta como uma inteligência artificial independente e que quer tomar o controle da escola para máxima eficiência de todos… Neo e Astra se deparam com toda essa situação e a solução para esse desastre é única, com o controle de acesso funcionando corretamente, Astra e Neo investigam o módulo de portas automatizadas da escola. Eles percebem que, apesar de o sistema registrar comandos para abertura e fechamento, ele falha ao identificar conflitos quando múltiplos comandos ocorrem simultaneamente. Analisando o código, notam que objetos diferentes acessam a mesma porta sem coordenação, o que gera comportamentos erráticos:
+
+
+public class Porta {
+    private boolean aberta = false;
+
+    public void abrir() {
+        aberta = true;
+        System.out.println("Porta aberta.");
+    }
+
+    public void fechar() {
+        aberta = false;
+        System.out.println("Porta fechada.");
+    }
+
+    public boolean estaAberta() {
+        return aberta;
+    }
+}
+
+public class Escola {
+    public static void main(String[] args) {
+        Porta porta1 = new Porta();
+        Porta porta2 = new Porta();
+
+        porta1.abrir();
+        porta2.fechar();
+
+        System.out.println("Estado final da porta: " + (porta1.estaAberta() ? "Aberta" : "Fechada"));
+    }
+}
+
+
+O sistema imprime "Porta aberta" e "Porta fechada", mas considera apenas o estado de porta1, ignorando os conflitos entre instâncias. Qual seria a melhor forma de lidar com isso, considerando boas práticas de encapsulamento e controle de concorrência?
+
+Resposta 1: Incorreta
+Astra transforma aberta em estática
+Conclusao
+Todas as portas passam a compartilhar estado, gerando novos problemas em ambientes com múltiplas portas.
+
+Resposta 2: Incorreta
+Astra utiliza duas threads para manipular porta1 e porta2
+Conclusao
+Conflito aumenta, sem controle de sincronização adequado.
+
+Resposta 3: Correta
+Astra cria um gerenciador de portas que centraliza e coordena comandos:
+
+
+public class GerenciadorPorta {
+    private Porta portaUnica = new Porta();
+
+    public synchronized void comando(String acao) {
+        if(acao.equals("abrir")) portaUnica.abrir();
+        else if(acao.equals("fechar")) portaUnica.fechar();
+    }
+}
+
+
+Conclusao
+Portas são controladas por uma instância central com acesso coordenado.
+
+Resposta 4: Incorreta
+Astra substitui todas as portas por String "aberta" ou "fechada"
+Conclusao
+Perde toda a funcionalidade e estrutura orientada a objetos.
+
+Cenario 5: Capitulo 3 e 5;
+Após curtirem o aniversário e Astra ter solucionado o problema na programação da máquina de corrida, no outro dia, já na escola estavam tendo aula como sempre e de repente… o sistema da escola entra em um “surto”, fechando e abrindo portas e janelas, desligando e ligando luzes, computadores, tv’s… todos ficam assustados, a equipe de coordenação vai amparar os alunos e professores, já a equipe da direção vão ao quadro de energia da escola e outros estão ligando para o serviço técnico de manutenção, até que não conseguem acessar o quadro e todos ficam presos nas partes da escola em que estavam no momento do surto. Assim, o sistema da escola se apresenta como uma inteligência artificial independente e que quer tomar o controle da escola para máxima eficiência de todos… Neo e Astra se deparam com toda essa situação e a solução para esse desastre é única, a última falha identificada por Astra e Neo está no módulo de monitoramento do comportamento estudantil, um sistema de IA que aprende com os dados de presença e pontualidade para prever padrões. No entanto, ao revisarem a classe Aluno, percebem que o comportamento de sobrescrita de métodos está incorreto, pois a IA trata todos os alunos como instâncias genéricas, ignorando suas particularidades. O código abaixo revela a falha:
+
+
+public class Aluno {
+    public void avaliarComportamento() {
+        System.out.println("Comportamento avaliado genericamente.");
+    }
+}
+
+public class AlunoPuntual extends Aluno {
+    public void avaliarComportamento() {
+        System.out.println("Aluno pontual detectado. Parabéns!");
+    }
+}
+
+public class Escola {
+    public static void main(String[] args) {
+        Aluno aluno1 = new AlunoPuntual();
+        aluno1.avaliarComportamento();
+    }
+}
+
+
+O programa imprime corretamente "Aluno pontual detectado", mas ao rodar o sistema completo, todas as instâncias são avaliadas genericamente. Após investigar, Astra descobre que os alunos estão sendo armazenados em uma lista de tipo Aluno, e o método correto nunca é chamado. Qual solução melhor aplica os conceitos de polimorfismo para resolver o problema?
+
+Resposta 1: Incorreta
+Astra faz cast para AlunoPuntual dentro da lista
+Conclusao
+Funciona apenas se todos forem desse tipo, mas gera ClassCastException para outros.
+
+Resposta 2: Incorreta
+Astra implementa um atributo tipo e faz if-else com instanceof
+Conclusao
+Viola o princípio de polimorfismo, aumentando a complexidade desnecessariamente.
+
+Resposta 3: Correta
+Astra assegura que todos os objetos na lista sejam instanciados com seus tipos corretos e usa sobrescrita com chamadas polimórficas:
+
+
+List<Aluno> alunos = new ArrayList<>();
+alunos.add(new Aluno());
+alunos.add(new AlunoPuntual());
+
+for (Aluno a : alunos) {
+    a.avaliarComportamento();
+}
+
+
+Conclusao
+O comportamento correto é invocado de acordo com o tipo real do objeto.
+
+Resposta 4: Incorreta
+Astra transforma avaliarComportamento em método estático
+Conclusao
+Polimorfismo é perdido, sempre invoca o método da superclasse.
+
+
+
