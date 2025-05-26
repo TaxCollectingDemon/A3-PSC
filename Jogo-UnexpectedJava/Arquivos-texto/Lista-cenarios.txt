@@ -147,19 +147,19 @@ Conclusao
 A catraca liberou a passagem normalmente, deixando Neo com saldo negativo.
 
 Resposta 2: Incorreta
-Trocar true por false.
+trocar no segundo if >= por <==
 Conclusao
-O sistema nao liberou seus celulares.
+A passagem nunca será paga e a catraca nao será liberada.
 
 Resposta 3: Incorreta
-Agrupar o nome do Neo e da Astra na mesma variavel.
+trocar o boolean estudante de true pra false
 Conclusao
-O sistema nao liberou seus celulares.
+Quebra o código.
 
 Resposta 4: Incorreta
-Trocar o if por while
+trocar o true por estudante no primeiro if
 Conclusao
-O sistema nao liberou seus celulares.
+Nunca será aplicado o desconto de estudante para um estudante.
 
 Cenario 5: Capitulo 2;
 Durante o intervalo, Neo e Astra vão comprar seus lanches na máquina de lanches 3000, que tem tudo que você possa imaginar de lanche, Astra seleciona o que quer, paga com o valor exato, mas Neo… trouxe dinheiro, pois sua avó lhe deu para comprar o que quisesse (escondido dos seus pais), quando foi inserir a nota, a máquina não retornou o troco. Dessa forma, Neo conseguiu abrir a máquina e acessar o código-fonte, visualizando o erro:
