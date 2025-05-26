@@ -90,7 +90,6 @@ O semáforo continua piscando da mesma maneira.
 
 
 Cenario 3: Capitulo 2;
-A narrativa se desenvolve num futuro distante (em torno de 2100), em que Astra e Neo são amigos de infância enfrentando problemas do dia a dia com Java.  
 Nas escolas do século XXII, já é ensinado como opcional em projeto de vida e no ensino médio, na grade curricular de exatas, programação em Java. A partir disso, Astra e Neo resolvem problemas dentro e fora da escola usando Java, como está para acontecer agora, eles estão indo às suas atividades extracurriculares, Astra vai para a aula de vôlei e Neo a aula de futebol, mas antes vão ao sistema da escola para liberar seus NovaBits (celulares do futuro), porém o sistema não os reconhece:
         
 IdentificarNomes();
@@ -158,16 +157,53 @@ A catraca liberou a passagem normalmente, deixando Neo com saldo negativo.
 
 Resposta 2: Incorreta
 Trocar true por false.
-O sistema nao liberou seus celulares 
+Conclusao
+O sistema nao liberou seus celulares.
 
 Resposta 3: Incorreta
-agrupar o nome do Neo e da Astra na mesma variavel.
-O sistema nao liberou seus celulares
+Agrupar o nome do Neo e da Astra na mesma variavel.
+Conclusao
+O sistema nao liberou seus celulares.
 
 Resposta 4: Incorreta
-trocar o if por while
-O sistema nao liberou seus celulares
+Trocar o if por while
+Conclusao
+O sistema nao liberou seus celulares.
 
+Cenario 5: Capitulo 2;
+Durante o intervalo, Neo e Astra vão comprar seus lanches na máquina de lanches 3000, que tem tudo que você possa imaginar de lanche, Astra seleciona o que quer, paga com o valor exato, mas Neo… trouxe dinheiro, pois sua avó lhe deu para comprar o que quisesse (escondido dos seus pais), quando foi inserir a nota, a máquina não retornou o troco. Dessa forma, Neo conseguiu abrir a máquina e acessar o código-fonte, visualizando o erro:
+private static final double PRECO_LANCHE = 8.50;
+double valorInserido = 20.00; // Dinheiro que Neo inseriu
+        
+System.out.println("Bem-vindo à Máquina de Lanches 3000!");
+System.out.println("Preço do lanche selecionado: R$ " + PRECO_LANCHE);
+System.out.println("Valor inserido: R$ " + valorInserido);
+        
+double troco = PRECO_LANCHE - valorInserido;       
+System.out.println("Troco a ser devolvido: R$ " + troco);
+
+Resposta 1: Correta
+Inverter 'PRECO_LANCHE' e 'valorInserido' em
+double troco = PRECO_LANCHE - valorInserido;
+Conclusao
+A máquina agora pede o valor normal de troco.
+
+Resposta 2: Incorreta
+Ajustar PRECO_LANCHE para 20.00
+Conclusao
+O robô agora não oferece nenhum troco.
+
+Resposta 3: Incorreta
+Mudar o sinal de menos para mais em
+double troco = PRECO_LANCHE - valorInserido;
+Conclusao
+A máquina agora oferece troco demais.
+
+Resposta 4: Incorreta
+Substituir 'troco' por 'PRECO_LANCHE' em
+System.out.println("Troco a ser devolvido: R$ " + troco);
+Conclusao
+A máquina agora sempre oferece troco igual ao valor da compra.
 
 Nivel 2;
 Cenario 1, Capítulo 2;
