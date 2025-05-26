@@ -82,6 +82,7 @@ Conclusao
 O semáforo continua piscando ainda mais freneticamente.
 
 Resposta 4: Incorreta
-Astra e Neo fazem y
+Colocar a declaração de 'semáforo' inicial como 
+semaforo = 0;
 Conclusao
-O robô quebra tudo
+O semáforo continua piscando da mesma maneira.
