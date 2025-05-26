@@ -1,5 +1,5 @@
 Nivel 1;
-Cenario 1: Capitulo 1;
+Cenario 1: Capitulo 2;
 Eles estão almoçando num restaurante em que, invés de as pessoas se servirem, robôs servem elas no buffet com o que pedem. Já comendo e conversando na mesa, veem que um dos robôs está apresentando falhas no momento de servir o prato, até que ele tem uma falha total e começa a jogar os pratos e alimentos nas pessoas, nossos personagens se deparam com essa situação e vão correndo ao gerente para perguntar: “em qual linguagem aquele robô está programado?” gerente: “Está programado em Java mas ninguém aqui do restaurante sabe Java além do nosso técnico que está folga!”, logo eles vão em direção ao robô, desviando de todos os pratos e alimentos jogados neles, chegam por trás, conseguem abrir uma portinhola de entrada para o seu hardware, Neo pluga seu NovaBit (celular do futuro) a uma entrada da placa-mãe e acessa o código-fonte do robô, identificando o erro no código, Neo terá que tomar uma decisão de como resolver o problema:
 Qual opção Neo deve executar no código-fonte para solucionar o seguinte problema:
 
@@ -36,7 +36,8 @@ String alvo = cliente;
 Conclusao
 O robô não compila o código, pois não existe variável 'alvo'.
 
-Cenario 1: Capitulo 2;
+
+Cenario 2: Capitulo 2;
 Eles estão voltando para casa, quando chegam em rua com um semáforo, param na faixa de pedestre para atravessar… porém as cores começam a alterar de forma aleatória sem sentido. Para que possam resolver esse problema, acessam o terminal do semáforo, abrem o código fonte e veem o erro:
 ligarSemaforo(); //liga o semáforo
 int semaforo = 1;
@@ -87,7 +88,8 @@ semaforo = 0;
 Conclusao
 O semáforo continua piscando da mesma maneira.
 
-Cenario 1: Capitulo 3;
+
+Cenario 3: Capitulo 2;
 A narrativa se desenvolve num futuro distante (em torno de 2100), em que Astra e Neo são amigos de infância enfrentando problemas do dia a dia com Java.  
 Nas escolas do século XXII, já é ensinado como opcional em projeto de vida e no ensino médio, na grade curricular de exatas, programação em Java. A partir disso, Astra e Neo resolvem problemas dentro e fora da escola usando Java, como está para acontecer agora, eles estão indo às suas atividades extracurriculares, Astra vai para a aula de vôlei e Neo a aula de futebol, mas antes vão ao sistema da escola para liberar seus NovaBits (celulares do futuro), porém o sistema não os reconhece:
         
@@ -131,6 +133,7 @@ String alvo = cliente;
 Conclusao
 O robô não compila o código, pois não existe variável 'alvo'.
 
+
 Cenario 4: Capitulo 2;
 Após suas aulas, Astra e Neo pegam um ônibus para voltar para casa, Astra consegue passar na catraca normalmente com seu reconhecimento facial e pagou também sua meia-entrada de estudante, Neo não consegue passar na catraca pelo fato de sua meia-entrada estar zerada, porém com uma nova regra, você pode passar 1 entrada negativa para que quando chegar ao seu destino, recarregue suas entradas. Assim, Neo reconhece o erro no código:
 double precoPassagem = 5.00;
@@ -164,3 +167,8 @@ O sistema nao liberou seus celulares
 Resposta 4: Incorreta
 trocar o if por while
 O sistema nao liberou seus celulares
+
+
+Nivel 2;
+Cenario 1, Capítulo 2;
+Depois de conseguirem resolver esse problema, passam-se algumas semanas e eles vão praticando cada vez mais java até que, Astra irá se deparar com um problema dentro do estoque do Pai, que está com o sistema mal atualizado para suas funções, entregadores de produtos vem de diferentes lugares do país, buscando novas cargas para entregar, como o estoque é bem grande e o Pai de Astra traz produtos diariamente, todos sabem que ele terá uma carga para você levar...
