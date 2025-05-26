@@ -57,8 +57,6 @@ public class Main {
             Pontuacao pontuacao = new Pontuacao();
 
             for (Nivel nivel : niveis.getListaNiveis()) {
-                System.out.println(nivel.getDificuldade());
-
                 System.out.println(nivel.getNome());
                 System.out.println("Dificuldade: " + nivel.getDificuldade());
                 System.out.println();
