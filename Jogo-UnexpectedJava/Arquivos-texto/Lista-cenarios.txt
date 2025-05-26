@@ -117,13 +117,25 @@ O robô não compila o código, pois não existe variável 'alvo'.
 
 Cenario 4: Capitulo 2;
 Após suas aulas, Astra e Neo pegam um ônibus para voltar para casa, Astra consegue passar na catraca normalmente com seu reconhecimento facial e pagou também sua meia-entrada de estudante, Neo não consegue passar na catraca pelo fato de sua meia-entrada estar zerada, porém com uma nova regra, você pode passar 1 entrada negativa para que quando chegar ao seu destino, recarregue suas entradas. Assim, Neo reconhece o erro no código:
-
+double precoPassagem = 5.00;
+int descontoEstudante = 2;
+boolean estudante = true;
+double saldo = 2.00;
+if (estudante == true) {
+    precoPassagem = precoPassagem / descontoEstudante; //aplica o desconto de estudante
+}
+if (saldo - precoPassagem >= 0) {
+    saldo = saldo - precoPassagem; //paga a passagem
+    System.out.println("Passagem paga com sucesso! Saldo restante: " + saldo);
+} else {
+    System.out.println("Saldo insuficiente para pagar a passagem.");
+}
 
 Resposta 1: Correta
-Substituir 'true' por 'false' em
-if (pratoNaMao == true)
+Remover '- precoPassagem' de
+if (saldo - precoPassagem >= 0)
 Conclusao
-O robô parou de servir os clientes completamente.
+A catraca liberou a passagem normalmente, deixando Neo com saldo negativo.
 
 Resposta 2: Incorreta
 Substituir 'cliente' por 'mesa' em
