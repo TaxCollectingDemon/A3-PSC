@@ -524,7 +524,7 @@ Nivel 4;
 Cenario 1: Capitulo 2;
 Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida está registrando pontuações de várias partidas em um array. O problema ocorre quando a soma das pontuações ímpares gera uma exceção inesperada devido a uma divisão incorreta. Astra analisa o seguinte código:
 
-java
+
 int[] pontuacoes = {87, 92, 75, 64, 89};
 int soma = 0;
 for(int i = 0; i < pontuacoes.length; i++) {
@@ -595,7 +595,7 @@ Oculta o problema, mas não resolve a lógica de parada corretamente.
 Cenario 3: Capitulo 2;
 Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida precisa converter a pontuação de várias partidas (valores double) para inteiros arredondados antes de exibir o ranking final. No entanto, o sistema atual apenas trunca os valores, o que afeta a justiça da competição. Astra verifica o seguinte trecho de código:
 
-java
+
 double[] pontuacoes = {123.7, 145.2, 119.9, 130.4};
 int[] rankingFinal = new int[pontuacoes.length];
 
@@ -620,9 +620,7 @@ Exibe, mas não resolve o problema da precisão.
 Resposta 3: Correta
 Astra usa Math.round() para arredondar corretamente:
 
-java
 rankingFinal[i] = (int) Math.round(pontuacoes[i]);
-
 
 Conclusao
 Ranking fica mais justo com valores arredondados.
@@ -632,6 +630,81 @@ Astra usa Math.floor()
 Conclusao
 Todos os valores são arredondados para baixo, o que não resolve a questão da justiça.
 
+Cenário 4: Capítulo 2;
+Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução, a máquina de corrida registra a pontuação dos jogadores, e em caso de empate, deveria usar o tempo de conclusão da corrida para desempatar. No entanto, o código atual apenas compara as pontuações e não trata o tempo, o que gera empates incorretos. Astra analisa o seguinte código:
+
+
+int[] pontuacoes = {120, 150, 150};
+int[] tempos = {90, 85, 92};
+
+int vencedor = 0;
+for(int i = 1; i < pontuacoes.length; i++) {
+    if(pontuacoes[i] > pontuacoes[vencedor]) {
+        vencedor = i;
+    }
+}
+System.out.println("Vencedor: Jogador " + vencedor);
+Resposta 1: Incorreta
+Astra troca > por >=
+Conclusão
+Continua não resolvendo empates corretamente.
+
+Resposta 2: Correta
+Astra adiciona verificação de tempo quando pontuações forem iguais:
+
+
+if(pontuacoes[i] > pontuacoes[vencedor] || 
+  (pontuacoes[i] == pontuacoes[vencedor] && tempos[i] < tempos[vencedor])) {
+    vencedor = i;
+}
+Conclusão
+Empates são corretamente resolvidos com base no menor tempo.
+
+Resposta 3: Incorreta
+Astra ordena os tempos sem verificar pontuação
+Conclusão
+Ignora o critério principal da pontuação.
+
+Resposta 4: Incorreta
+Astra soma pontuação e tempo
+Conclusão
+Combinação distorce o resultado, desconsiderando a lógica de desempate.
+
+Cenário 5: Capítulo 2;
+Após Neo conseguir resolver o problema da google home em sua casa, passa-se 1 semana, ele e Astra estão indo para o aniversário de um colega que vai ser feito num bar fliperama. Lá, escolheram uma máquina de corrida para jogar, porém quando terminaram de jogar, sua pontuação além de não ser registrada fez com que a máquina desse erro, assim, já com uma certa experiência foram abrir o terminal da máquina e ver o que estava acontecendo, localizaram o erro na programação do jogo e Astra se prontificou em codificar a solução , o código precisa verificar se um jogador superou sua própria pontuação anterior. O problema ocorre porque o sistema sobrescreve a pontuação sem verificar se é maior, comprometendo o histórico do ranking. Astra revê o código abaixo:
+
+
+int[] ranking = {200, 180, 150};
+int jogador = 1; // índice do jogador 2
+int novaPontuacao = 170;
+
+ranking[jogador] = novaPontuacao;
+
+System.out.println("Nova pontuação registrada: " + ranking[jogador]);
+Resposta 1: Incorreta
+Astra inverte o array
+Conclusão
+Sem impacto na lógica de comparação.
+
+Resposta 2: Correta
+Astra adiciona verificação antes de atualizar:
+
+
+if(novaPontuacao > ranking[jogador]) {
+    ranking[jogador] = novaPontuacao;
+}
+Conclusão
+Apenas pontuações maiores são registradas, preservando o progresso.
+
+Resposta 3: Incorreta
+Astra zera as pontuações antes de atualizar
+Conclusão
+Perde histórico de desempenho anterior.
+
+Resposta 4: Incorreta
+Astra imprime a nova pontuação antes de atualizar
+Conclusão
+Ordem do código não afeta a lógica de substituição.
 
 
 
@@ -949,6 +1022,7 @@ Resposta 4: Incorreta
 Astra transforma avaliarComportamento em método estático
 Conclusao
 Polimorfismo é perdido, sempre invoca o método da superclasse.
+
 
 
 
