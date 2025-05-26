@@ -3,14 +3,14 @@ Cenario 1: Capitulo 1;
 Eles estão almoçando num restaurante em que, invés de as pessoas se servirem, robôs servem elas no buffet com o que pedem. Já comendo e conversando na mesa, veem que um dos robôs está apresentando falhas no momento de servir o prato, até que ele tem uma falha total e começa a jogar os pratos e alimentos nas pessoas, nossos personagens se deparam com essa situação e vão correndo ao gerente para perguntar: “em qual linguagem aquele robô está programado?” gerente: “Está programado em Java mas ninguém aqui do restaurante sabe Java além do nosso técnico que está folga!”, logo eles vão em direção ao robô, desviando de todos os pratos e alimentos jogados neles, chegam por trás, conseguem abrir uma portinhola de entrada para o seu hardware, Neo pluga seu NovaBit (celular do futuro) a uma entrada da placa-mãe e acessa o código-fonte do robô, identificando o erro no código, Neo terá que tomar uma decisão de como resolver o problema:
 Qual opção Neo deve executar no código-fonte para solucionar o seguinte problema:
 
-pegarPrato();
+pegarPrato(); //pega o prato a servir
 String cliente = "Cliente";
 String mesa = "Mesa 1";
         
 if (pratoNaMao == true) {
-String alvo = cliente;
+    String alvo = cliente;
 }
-colocarprato(alvo);
+colocarprato(alvo); //põe o prato no destino alvo
 
 Resposta 1: Incorreta
 Substituir 'true' por 'false' em
@@ -38,21 +38,48 @@ O robô não compila o código, pois não existe variável 'alvo'.
 
 Cenario 2: Capitulo 2;
 Eles estão voltando para casa, quando chegam em rua com um semáforo, param na faixa de pedestre para atravessar… porém as cores começam a alterar de forma aleatória sem sentido. Para que possam resolver esse problema, acessam o terminal do semáforo, abrem o código fonte e veem o erro:
+ligarSemaforo(); //liga o semáforo
+int semaforo = 1;
+while (semaforoLigado == true) {
+    if (semaforo == 1) {
+        ascenderVerde(); //ascende o verde
+        desligarAmarelo(); //desliga o amarelo
+        desligarVermelho(); //desliga o vermelho
+        semaforo++;
+    } if (semaforo == 2) {
+        ascenderAmarelo(); //ascende o amarelo
+        desligarVerde(); //desliga o verde
+        desligarVermelho(); //desliga o vermelho
+        semaforo++;
+    } if (semaforo == 3) {
+        ascenderVermelho(); //ascende o vermelho
+        desligarVerde(); //desliga o verde
+        desligarAmarelo(); //desliga o amarelo
+        semaforo++;
+    }
+    if (semaforo == 4) {
+        ascenderAmarelo(); //ascende o amarelo
+        desligarVerde(); //desliga o verde
+        desligarVermelho(); //desliga o vermelho
+        semaforo = 1;
+    }
+    esperarSegundos(15); //espera 15 segundos antes de mudar a cor do semáforo
+}
 
 Resposta 1: Correta
-Astra e Neo fazem x
+Colocar 'else' antes de cada 'if ()'após o primeiro
 Conclusao
-O robô é consertado
+O semáforo volta a funcionar ao normal.
 
 Resposta 2: Incorreta
-Astra e Neo fazem y
+Substituir os símbolos de == com <= 
 Conclusao
-O robô quebra tudo
+O semáforo continua piscando sem sentido.
 
 Resposta 3: Incorreta
-Astra e Neo fazem y
+Colocar a linha de código 'esperarSegundos(15);' fora do loop while
 Conclusao
-O robô quebra tudo
+O semáforo continua piscando ainda mais freneticamente.
 
 Resposta 4: Incorreta
 Astra e Neo fazem y
