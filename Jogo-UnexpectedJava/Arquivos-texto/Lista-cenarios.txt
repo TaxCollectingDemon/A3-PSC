@@ -36,7 +36,7 @@ String alvo = cliente;
 Conclusao
 O robô não compila o código, pois não existe variável 'alvo'.
 
-Cenario 2: Capitulo 2;
+Cenario 1: Capitulo 2;
 Eles estão voltando para casa, quando chegam em rua com um semáforo, param na faixa de pedestre para atravessar… porém as cores começam a alterar de forma aleatória sem sentido. Para que possam resolver esse problema, acessam o terminal do semáforo, abrem o código fonte e veem o erro:
 ligarSemaforo(); //liga o semáforo
 int semaforo = 1;
@@ -87,58 +87,34 @@ semaforo = 0;
 Conclusao
 O semáforo continua piscando da mesma maneira.
 
-Cenario 3: Capitulo 3;
-Eles estão indo às suas atividades extracurriculares, Astra vai para a aula de vôlei e Neo a aula de futebol, mas antes vão ao sistema da escola para liberar seus NovaBits (celulares do futuro), porém o sistema não os reconhece:
+Cenario 1: Capitulo 3;
+A narrativa se desenvolve num futuro distante (em torno de 2100), em que Astra e Neo são amigos de infância enfrentando problemas do dia a dia com Java.  
+Nas escolas do século XXII, já é ensinado como opcional em projeto de vida e no ensino médio, na grade curricular de exatas, programação em Java. A partir disso, Astra e Neo resolvem problemas dentro e fora da escola usando Java, como está para acontecer agora, eles estão indo às suas atividades extracurriculares, Astra vai para a aula de vôlei e Neo a aula de futebol, mas antes vão ao sistema da escola para liberar seus NovaBits (celulares do futuro), porém o sistema não os reconhece:
         
+IdentificarNomes();
+String Πome =  Neo Reeves;
+String Πome = Astra skywalker;
+if ( identificar Nomes == true ) {
+LiberarCelular();
+        } else {
+        NãoLiberarCelular;
+        }
 
-Resposta 1: Correta
-Substituir 'true' por 'false' em
-if (pratoNaMao == true)
-Conclusao
-O robô parou de servir os clientes completamente.
-
-Resposta 2: Incorreta
-Substituir 'cliente' por 'mesa' em
-String alvo = cliente;
-Conclusao
-O robô volta a servir os pratos nas mesas normalmente.
-
-Resposta 3: Incorreta
-Substituir 'alvo' por 'mesa' em 
-colocarprato(alvo);
-Conclusao
-O robô fica tentando servir as mesas mesmo quando não tem prato a servir e não consegue terminar as tarefas.
-
-Resposta 4: Incorreta
-Substituir 'String alvo' por 'mesa' em
-String alvo = cliente;
-Conclusao
-O robô não compila o código, pois não existe variável 'alvo'.
-
-Cenario 4: Capitulo 2;
-Após suas aulas, Astra e Neo pegam um ônibus para voltar para casa, Astra consegue passar na catraca normalmente com seu reconhecimento facial e pagou também sua meia-entrada de estudante, Neo não consegue passar na catraca pelo fato de sua meia-entrada estar zerada, porém com uma nova regra, você pode passar 1 entrada negativa para que quando chegar ao seu destino, recarregue suas entradas. Assim, Neo reconhece o erro no código:
+}
 
 
 Resposta 1: Correta
-Substituir 'true' por 'false' em
-if (pratoNaMao == true)
-Conclusao
-O robô parou de servir os clientes completamente.
+Trocar a primeira letra  da variavel String 
+Neo e Astra conseguem pegar seus celulares.
 
 Resposta 2: Incorreta
-Substituir 'cliente' por 'mesa' em
-String alvo = cliente;
-Conclusao
-O robô volta a servir os pratos nas mesas normalmente.
+Trocar true por false.
+O sistema nao liberou seus celulares 
 
 Resposta 3: Incorreta
-Substituir 'alvo' por 'mesa' em 
-colocarprato(alvo);
-Conclusao
-O robô fica tentando servir as mesas mesmo quando não tem prato a servir e não consegue terminar as tarefas.
+agrupar o nome do Neo e da Astra na mesma variavel.
+O sistema nao liberou seus celulares
 
 Resposta 4: Incorreta
-Substituir 'String alvo' por 'mesa' em
-String alvo = cliente;
-Conclusao
-O robô não compila o código, pois não existe variável 'alvo'.
+trocar o if por while
+O sistema nao liberou seus celulares
