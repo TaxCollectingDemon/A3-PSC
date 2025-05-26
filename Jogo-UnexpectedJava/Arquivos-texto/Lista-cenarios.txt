@@ -108,29 +108,20 @@ Trocar a primeira letra  da variavel String
 Conclusao
 Neo e Astra conseguem pegar seus celulares.
 
-Resposta 1: Correta
-Substituir 'true' por 'false' em
-if (pratoNaMao == true)
-Conclusao
-O robô parou de servir os clientes completamente.
-
 Resposta 2: Incorreta
-Substituir 'cliente' por 'mesa' em
-String alvo = cliente;
+Trocar true por false.
 Conclusao
-O robô volta a servir os pratos nas mesas normalmente.
+O sistema nao liberou seus celulares.
 
 Resposta 3: Incorreta
-Substituir 'alvo' por 'mesa' em 
-colocarprato(alvo);
+Agrupar o nome do Neo e da Astra na mesma variavel.
 Conclusao
-O robô fica tentando servir as mesas mesmo quando não tem prato a servir e não consegue terminar as tarefas.
+O sistema nao liberou seus celulares.
 
 Resposta 4: Incorreta
-Substituir 'String alvo' por 'mesa' em
-String alvo = cliente;
+Trocar o if por while
 Conclusao
-O robô não compila o código, pois não existe variável 'alvo'.
+O sistema nao liberou seus celulares.
 
 
 Cenario 4: Capitulo 2;
