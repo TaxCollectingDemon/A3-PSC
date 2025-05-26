@@ -86,3 +86,32 @@ Colocar a declaração de 'semáforo' inicial como
 semaforo = 0;
 Conclusao
 O semáforo continua piscando da mesma maneira.
+
+Cenario 3: Capitulo 3;
+
+
+
+
+Resposta 1: Correta
+Substituir 'true' por 'false' em
+if (pratoNaMao == true)
+Conclusao
+O robô parou de servir os clientes completamente.
+
+Resposta 2: Incorreta
+Substituir 'cliente' por 'mesa' em
+String alvo = cliente;
+Conclusao
+O robô volta a servir os pratos nas mesas normalmente.
+
+Resposta 3: Incorreta
+Substituir 'alvo' por 'mesa' em 
+colocarprato(alvo);
+Conclusao
+O robô fica tentando servir as mesas mesmo quando não tem prato a servir e não consegue terminar as tarefas.
+
+Resposta 4: Incorreta
+Substituir 'String alvo' por 'mesa' em
+String alvo = cliente;
+Conclusao
+O robô não compila o código, pois não existe variável 'alvo'.
