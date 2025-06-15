@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+
 public class ListaJogadores {
     private Jogador[] listaJogadores;
     private Jogador[] top10Jogadores;
@@ -58,13 +60,58 @@ public class ListaJogadores {
         }
     }
 
-    public void salvarJogadores(String arquivo) {
-        // Implementar lógica para salvar jogadores em um arquivo
-        // Exemplo: escrever os dados dos jogadores no arquivo especificado
+    public void salvarJogadores(FileWriter escritor) {
+        StringBuilder conteudo = new StringBuilder();
+        for (Jogador jogador : listaJogadores) {
+            if (jogador != null) {
+                conteudo.append("<:> ").append(jogador.getUsername()).append(" <:> ")
+                        .append(jogador.getNome()).append(" <:> ")
+                        .append(jogador.getSenha()).append(" <:> ")
+                        .append(jogador.getEmail()).append(" <:> ")
+                        .append(jogador.getPontMax()).append(" <!>\n\n");
+            }
+        }
+        try {
+            escritor.write(conteudo.toString());
+            escritor.flush();
+        } catch (Exception e) {
+            System.err.println("Erro ao salvar jogadores: " + e.getMessage());
+        }
     }
 
     public void importarJogadores(String arquivo) {
-        
+        int escopo1 = arquivo.indexOf("<:>");
+        boolean temProximo = true;
+        if (escopo1 == -1) {
+            System.out.println("Nenhum jogador encontrado no arquivo.");
+            temProximo = false;
+        }
+        else {
+            System.err.println("Jogadores encontrados no arquivo.");
+        }
+
+        while (temProximo == true) {
+            int escopo2 = arquivo.indexOf("<:>", escopo1 + 3);
+            int escopo3 = arquivo.indexOf("<:>", escopo2 + 3);
+            int escopo4 = arquivo.indexOf("<:>", escopo3 + 3);
+            int escopo5 = arquivo.indexOf("<:>", escopo4 + 3);
+            int escopo6 = arquivo.indexOf("<!>", escopo5 + 3);
+
+            String tempUsername = arquivo.substring(escopo1 + 3, escopo2).trim();
+            String tempEmail = arquivo.substring(escopo4 + 3, escopo5).trim();
+            String tempSenha = arquivo.substring(escopo3 + 3, escopo4).trim();
+            String tempNome = arquivo.substring(escopo2 + 3, escopo3).trim();
+            int tempPontMax = Integer.parseInt(arquivo.substring(escopo5 + 3, escopo6).trim());
+            
+            Jogador tempJogador = new Jogador(tempNome, tempUsername, tempSenha, tempEmail, tempPontMax);
+            adicionarJogador(tempJogador);
+
+            if (arquivo.indexOf("<:>", escopo6 + 3) == -1) {
+                temProximo = false;
+            } else {
+                escopo1 = arquivo.indexOf("<:>", escopo6 + 3);
+            }
+        }
     }
 
 }

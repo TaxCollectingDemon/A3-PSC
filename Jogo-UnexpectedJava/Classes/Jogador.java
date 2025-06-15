@@ -14,12 +14,12 @@ public class Jogador {
         this.email = "";
     }
 
-    public Jogador(String nome, String username, String senha, String email) {
+    public Jogador(String nome, String username, String senha, String email, int pontMax) {
         this.nome = nome;
         this.username = username;
         this.senha = senha;
         this.email = email;
-        this.pontMax = 0;
+        this.pontMax = pontMax;
     }
 
     public int getPontMax() {

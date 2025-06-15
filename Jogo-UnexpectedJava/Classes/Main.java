@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Random;
@@ -14,6 +15,8 @@ public class Main {
         Thread.sleep(1500);
         
         System.out.println("Carregando os níveis do jogo...");
+        Thread.sleep(500);
+        System.out.println("Carregando a lista de jogadores...");
         Niveis niveis = new Niveis();
         ListaJogadores listaJogadores = new ListaJogadores();
 
@@ -22,6 +25,10 @@ public class Main {
             BufferedReader arquivo = new BufferedReader(arquivoScan);
             FileReader introScan = new FileReader("Jogo-UnexpectedJava\\Arquivos-texto\\Introducao.txt");
             BufferedReader introducao = new BufferedReader(introScan);
+            FileReader jogadoresScan = new FileReader("Jogo-UnexpectedJava\\Arquivos-texto\\Lista-jogadores.txt");
+            BufferedReader jogadores = new BufferedReader(jogadoresScan);
+            FileWriter escritor = new FileWriter("Jogo-UnexpectedJava\\Arquivos-texto\\Lista-jogadores.txt");
+
         ) {
             StringBuilder conteudo = new StringBuilder();
             String line = arquivo.readLine();
@@ -38,7 +45,16 @@ public class Main {
                 lineIntro = introducao.readLine();
             }
 
-            Thread.sleep(2000);
+            StringBuilder conteudoJogadores = new StringBuilder();
+            String lineJogadores = jogadores.readLine();
+            while (lineJogadores != null) {
+                conteudoJogadores.append(lineJogadores).append("\n");
+                lineJogadores = jogadores.readLine();
+            }
+            listaJogadores.importarJogadores(conteudoJogadores.toString());
+
+            Thread.sleep(1500);
+
 
             System.out.println("Níveis carregados com sucesso!");
             System.out.println();
