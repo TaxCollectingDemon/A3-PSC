@@ -152,6 +152,7 @@ public class Main {
                 System.out.println();
                 Thread.sleep(300);
 
+                //Inserir aqui todas as funcionalidades de salvar o jogador, atualizar o top 10, etc.
 
                 System.out.println("Deseja jogar novamente?");
                 System.out.println("Digite 'S' para aceitar, ou qualquer outra tecla para recusar.");
@@ -168,7 +169,6 @@ public class Main {
                     System.out.println("Se quiser jogar novamente, basta reiniciar o programa.");
                     Thread.sleep(300);
                 }
-
 
 
             }
