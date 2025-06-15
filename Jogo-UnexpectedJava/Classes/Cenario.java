@@ -71,7 +71,6 @@ public class Cenario {
         retorno.append("Capitulo Livro: ").append(this.capituloLivro).append("\n");
         retorno.append("Nivel: ").append(this.nivel).append("\n");
         
-        
         return retorno.toString();
     }
 

@@ -49,7 +49,7 @@ public class Pontuacao {
             titulo = "Aprendiz de Programador";
         } else if (pontos > 350 && pontos <= 550) {
             titulo = "Desbravador do Java";
-        } else if (pontos > 450 && pontos <= 700) {
+        } else if (pontos > 550 && pontos <= 700) {
             titulo = "Mestre do Código";
         }
 
