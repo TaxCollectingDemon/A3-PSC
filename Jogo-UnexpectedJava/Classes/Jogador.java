@@ -54,9 +54,5 @@ public class Jogador {
         this.email = email;
     }
 
-    public void importarJogador(String arquivo) {
-        
-    }
-
 
 }
