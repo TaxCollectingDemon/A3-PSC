@@ -2,4 +2,8 @@ Andrei123 <-> Andrei <-> 700 <;>
 MaxSteel <-> Max <-> 600 <;>
 ReiArthur <-> Arthur <-> 600 <;>
 
-<:> Andrei123 <:> andreimassinger@gmail.com <:> pedrinhomatadordeporco <:> Andrei <:>
+<:> Andrei123 <:> andreimassinger@gmail.com <:> pedrinhomatadordeporco <:> Andrei <:> 700 <!>
+
+<:> MaxSteel <:> maxbrixius@gmail.com <:> kirby123 <:> Max <:> 600 <!>
+
+<:> ReiArthur <:> arthurkayan@gmail.com <:> excalibur <:> Arthur <:> 600 <!>

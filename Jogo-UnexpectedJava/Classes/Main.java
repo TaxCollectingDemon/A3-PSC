@@ -53,104 +53,125 @@ public class Main {
 
             Thread.sleep(500);
             
+            resposta = "";
             Random random = new Random();
             Pontuacao pontuacao = new Pontuacao();
+            boolean querjogar = true;
 
-            for (Nivel nivel : niveis.getListaNiveis()) {
-                System.out.println(nivel.getNome());
-                System.out.println("Dificuldade: " + nivel.getDificuldade());
+            while (querjogar == true) {
+                for (Nivel nivel : niveis.getListaNiveis()) {
+                    System.out.println(nivel.getNome());
+                    System.out.println("Dificuldade: " + nivel.getDificuldade());
+                    System.out.println();
+
+                    Thread.sleep(500);
+
+                    Cenario cenario = nivel.getCenarios()[random.nextInt(nivel.getCenarios().length - 1)];
+                    System.out.println(cenario.getIntroducao());
+                    System.out.println();
+                    Thread.sleep(300);
+                    System.out.println("Capítulo do livro para referência: " + cenario.getCapituloLivro());
+                    System.out.println();
+
+                    Thread.sleep(300);
+
+                    Resposta[] respostasRandom = Embaralhar.embaralharRespostas(cenario.getRespostas());
+
+                    boolean respostaCorreta = false;
+                    boolean respostaValida = false;
+                    int conclusao = 0;
+                    while (respostaValida == false) {
+                        System.out.println("Respostas:");
+                        Thread.sleep(100);
+                        System.out.println("A: " + respostasRandom[0].getResposta());
+                        Thread.sleep(100);
+                        System.out.println("B: " + respostasRandom[1].getResposta());
+                        Thread.sleep(100);
+                        System.out.println("C: " + respostasRandom[2].getResposta());
+                        Thread.sleep(100);
+                        System.out.println("D: " + respostasRandom[3].getResposta());
+                        Thread.sleep(100);
+                        System.out.println();
+                        System.out.print("Para responder, digite a letra correspondente: ");
+                        String respostaUsuario = scanner.nextLine().toUpperCase();
+                        Thread.sleep(500);
+
+                        switch (respostaUsuario) {
+                            case "A":
+                                respostaCorreta = respostasRandom[0].isCorreta();
+                                respostaValida = true;
+                                conclusao = 0;
+                                break;
+                            case "B":
+                                respostaCorreta = respostasRandom[1].isCorreta();
+                                respostaValida = true;
+                                conclusao = 1;
+                                break;
+                            case "C":
+                                respostaCorreta = respostasRandom[2].isCorreta();
+                                respostaValida = true;
+                                conclusao = 2;
+                                break;
+                            case "D":
+                                respostaCorreta = respostasRandom[3].isCorreta();
+                                respostaValida = true;
+                                conclusao = 3;
+                                break;
+                            default:
+                                System.out.println("Resposta inválida. Tente novamente.");
+                        }
+                    }
+
+                    Thread.sleep(300);
+
+                    if (respostaCorreta) {
+                        System.out.println("Resposta correta!");
+                        System.out.println(respostasRandom[conclusao].getConclusao());
+                        pontuacao.addPontos(pontuacao.calcPontos(nivel.getDificuldade()));
+                        pontuacao.incAcerto();
+                    } else {
+                        System.out.println("Resposta incorreta.");
+                        System.out.println(respostasRandom[conclusao].getConclusao());
+                        pontuacao.incErro();
+                    }
+                    System.out.println();
+                    System.out.println();
+
+                    Thread.sleep(1000);
+                }
+                System.out.println("Parabéns, você completou todos os níveis!");
                 System.out.println();
 
                 Thread.sleep(500);
 
-                Cenario cenario = nivel.getCenarios()[random.nextInt(nivel.getCenarios().length - 1)];
-                System.out.println(cenario.getIntroducao());
+                System.out.println("Sua pontuação final é de: " + pontuacao.getPontos() + " pontos!");
+                Thread.sleep(300);
+                System.out.println("Você teve " + pontuacao.getAcertos() + " acertos e " + pontuacao.getErros() + " erros.");
+                Thread.sleep(300);
+                System.out.println("Seu título final é: " + pontuacao.getTitulo() + "!");
                 System.out.println();
                 Thread.sleep(300);
-                System.out.println("Capítulo do livro para referência: " + cenario.getCapituloLivro());
-                System.out.println();
 
+
+                System.out.println("Deseja jogar novamente?");
+                System.out.println("Digite 'S' para aceitar, ou qualquer outra tecla para recusar.");
                 Thread.sleep(300);
-
-                Resposta[] respostasRandom = Embaralhar.embaralharRespostas(cenario.getRespostas());
-
-                boolean respostaCorreta = false;
-                boolean respostaValida = false;
-                int conclusao = 0;
-                while (respostaValida == false) {
-                    System.out.println("Respostas:");
-                    Thread.sleep(100);
-                    System.out.println("A: " + respostasRandom[0].getResposta());
-                    Thread.sleep(100);
-                    System.out.println("B: " + respostasRandom[1].getResposta());
-                    Thread.sleep(100);
-                    System.out.println("C: " + respostasRandom[2].getResposta());
-                    Thread.sleep(100);
-                    System.out.println("D: " + respostasRandom[3].getResposta());
-                    Thread.sleep(100);
-                    System.out.println();
-                    System.out.print("Para responder, digite a letra correspondente: ");
-                    String respostaUsuario = scanner.nextLine().toUpperCase();
+                resposta = scanner.nextLine().toUpperCase();
+                if (resposta.equals("S")) {
+                    querjogar = true;
                     Thread.sleep(500);
-
-                    switch (respostaUsuario) {
-                        case "A":
-                            respostaCorreta = respostasRandom[0].isCorreta();
-                            respostaValida = true;
-                            conclusao = 0;
-                            break;
-                        case "B":
-                            respostaCorreta = respostasRandom[1].isCorreta();
-                            respostaValida = true;
-                            conclusao = 1;
-                            break;
-                        case "C":
-                            respostaCorreta = respostasRandom[2].isCorreta();
-                            respostaValida = true;
-                            conclusao = 2;
-                            break;
-                        case "D":
-                            respostaCorreta = respostasRandom[3].isCorreta();
-                            respostaValida = true;
-                            conclusao = 3;
-                            break;
-                        default:
-                            System.out.println("Resposta inválida. Tente novamente.");
-                    }
+                }
+                else {
+                    querjogar = false;
+                    System.out.println("Obrigado por jogar!");
+                    Thread.sleep(300);
+                    System.out.println("Se quiser jogar novamente, basta reiniciar o programa.");
+                    Thread.sleep(300);
                 }
 
-                Thread.sleep(300);
 
-                if (respostaCorreta) {
-                    System.out.println("Resposta correta!");
-                    System.out.println(respostasRandom[conclusao].getConclusao());
-                    pontuacao.addPontos(pontuacao.calcPontos(nivel.getDificuldade()));
-                    pontuacao.incAcerto();
-                } else {
-                    System.out.println("Resposta incorreta.");
-                    System.out.println(respostasRandom[conclusao].getConclusao());
-                    pontuacao.incErro();
-                }
-                System.out.println();
-                System.out.println();
 
-                Thread.sleep(1000);
             }
-            System.out.println("Parabéns, você completou todos os níveis!");
-            System.out.println();
-
-            Thread.sleep(500);
-
-            System.out.println("Sua pontuação final é de: " + pontuacao.getPontos() + " pontos!");
-            Thread.sleep(300);
-            System.out.println("Você teve " + pontuacao.getAcertos() + " acertos e " + pontuacao.getErros() + " erros.");
-            Thread.sleep(300);
-            System.out.println("Seu título final é: " + pontuacao.getTitulo() + "!");
-            System.out.println();
-            Thread.sleep(300);
-            System.out.println("Obrigado por jogar!");
-            Thread.sleep(300);
-            System.out.println("Para jogar novamente, reinicie o programa.");
 
         } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());
