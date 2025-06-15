@@ -15,6 +15,8 @@ public class Main {
         
         System.out.println("Carregando os níveis do jogo...");
         Niveis niveis = new Niveis();
+        ListaJogadores listaJogadores = new ListaJogadores();
+
         try (
             FileReader arquivoScan = new FileReader("Jogo-UnexpectedJava\\Arquivos-texto\\Lista-cenarios.txt");
             BufferedReader arquivo = new BufferedReader(arquivoScan);

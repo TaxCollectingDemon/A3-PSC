@@ -64,8 +64,7 @@ public class ListaJogadores {
     }
 
     public void importarJogadores(String arquivo) {
-        // Implementar lógica para importar jogadores de um arquivo
-        // Exemplo: ler o arquivo e criar objetos Jogador a partir dos dados
+        
     }
 
 }
