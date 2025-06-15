@@ -1,8 +1,8 @@
 public class Pontuacao {
-    int pontos;
-    int acertos;
-    int erros;
-    String titulo;
+    private int pontos;
+    private int acertos;
+    private int erros;
+    private String titulo;
 
     public Pontuacao() {
         this.pontos = 0;

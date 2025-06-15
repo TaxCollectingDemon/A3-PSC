@@ -145,7 +145,7 @@ public class Main {
             Thread.sleep(300);
             System.out.println("Você teve " + pontuacao.getAcertos() + " acertos e " + pontuacao.getErros() + " erros.");
             Thread.sleep(300);
-            System.out.println("Seu ranking final é: " + pontuacao.getTitulo() + "!");
+            System.out.println("Seu título final é: " + pontuacao.getTitulo() + "!");
             System.out.println();
             Thread.sleep(300);
             System.out.println("Obrigado por jogar!");
