@@ -6,6 +6,14 @@ public class Jogador {
     private String email;
 
 
+    public Jogador() {
+        this.pontMax = 0;
+        this.nome = "";
+        this.username = "";
+        this.senha = "";
+        this.email = "";
+    }
+
     public Jogador(String nome, String username, String senha, String email) {
         this.nome = nome;
         this.username = username;

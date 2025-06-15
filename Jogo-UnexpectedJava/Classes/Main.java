@@ -57,6 +57,8 @@ public class Main {
             Random random = new Random();
             Pontuacao pontuacao = new Pontuacao();
             boolean querjogar = true;
+            boolean estaLogado = false;
+            Jogador jogadorAtivo = new Jogador();
 
             while (querjogar == true) {
                 for (Nivel nivel : niveis.getListaNiveis()) {
