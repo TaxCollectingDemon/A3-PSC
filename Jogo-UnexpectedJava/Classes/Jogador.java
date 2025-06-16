@@ -62,5 +62,9 @@ public class Jogador {
         this.email = email;
     }
 
-
+    public void salvarMelhor(int pontuacao) {
+        if (pontuacao > this.pontMax) {
+            this.pontMax = pontuacao;
+        }
+    }
 }

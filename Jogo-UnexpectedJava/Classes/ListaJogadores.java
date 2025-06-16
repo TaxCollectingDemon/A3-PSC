@@ -79,6 +79,156 @@ public class ListaJogadores {
         }
     }
 
+    public int encontrarJogador(String username) {
+        if (listaJogadores != null) {
+            for (int i = 0; i < listaJogadores.length; i++) {
+                if (listaJogadores[i].getUsername().equals(username)) {
+                    return i;
+                }
+            }
+        }
+        return -1; // Jogador não encontrado
+    }
+
+    public void atualizarJogador(Jogador jogador) {
+        int index = encontrarJogador(jogador.getUsername());
+        listaJogadores[index] = jogador;
+    }
+
+    public Jogador fazerLogin() {
+        System.out.println("Digite seu login:");
+        String username = System.console().readLine();
+        int index = encontrarJogador(username);
+        boolean usuarioEncontrado = false;
+        do {
+            if (index != -1) {
+                System.out.println("Olá, " + listaJogadores[index].getNome() + ". Por favor, digite sua senha:");
+                String senha = System.console().readLine();
+                boolean tentarNovamente = true;
+                while (tentarNovamente == true) {
+                    if (listaJogadores[index].getSenha().equals(senha)) {
+                        System.out.println("Login realizado com sucesso!");
+                        return listaJogadores[index];
+                    } else {
+                        System.out.println("Senha incorreta. Digite 'S' para tentar novamente, senão insira qualquer outra tecla.");
+                        String resposta = System.console().readLine();
+                        if (!resposta.equalsIgnoreCase("S")) {
+                            tentarNovamente = false;
+                            System.out.println("Login falhou. Tente novamente mais tarde.");
+                        } else {
+                            System.out.println("Por favor, digite sua senha novamente:");
+                            senha = System.console().readLine();
+                        }
+                    }
+            }
+            } else {
+                System.out.println("Usuário não encontrado. Digite 'S' para tentar novamente, senão insira qualquer outra tecla.");
+                    String resposta = System.console().readLine();
+                    if (!resposta.equalsIgnoreCase("S")) {
+                        usuarioEncontrado = true;
+                        System.out.println("Login falhou. Tente novamente mais tarde.");
+                    } else {
+                        System.out.println("Por favor, digite seu login novamente:");
+                        username = System.console().readLine();
+                    }
+                
+            }
+        } while (usuarioEncontrado == false);
+
+        return null;
+    }
+
+    public Jogador fazerLogin(String username) {
+        int index = encontrarJogador(username);
+        boolean continuarSelecao = true;
+        do {
+            if (index != -1) {
+                System.out.println("Olá, " + listaJogadores[index].getNome() + ". Por favor, digite sua senha:");
+                String senha = System.console().readLine();
+                boolean tentarNovamente = true;
+                while (tentarNovamente == true) {
+                    if (listaJogadores[index].getSenha().equals(senha)) {
+                        System.out.println("Login realizado com sucesso!");
+                        return listaJogadores[index];
+                    } else {
+                        System.out.println("Senha incorreta. Digite 'S' para tentar novamente, senão insira qualquer outra tecla.");
+                        String resposta = System.console().readLine();
+                        if (!resposta.equalsIgnoreCase("S")) {
+                            tentarNovamente = false;
+                            System.out.println("Login falhou. Tente novamente mais tarde.");
+                            continuarSelecao = false;
+                        } else {
+                            System.out.println("Por favor, digite sua senha novamente:");
+                            senha = System.console().readLine();
+                        }
+                    }
+            }
+            } else {
+                System.out.println("Usuário não encontrado.");
+                continuarSelecao = false;
+            }
+        } while (continuarSelecao == true);
+
+        return null;
+    }
+
+    public void modificarJogador(Jogador jogador) {
+        int index = encontrarJogador(jogador.getUsername());
+
+        if (index != -1) {
+            boolean continuarModificacao = true;
+            while (continuarModificacao) {
+                System.out.println("Digite a opção que deseja selecionar:");
+                System.out.println("1 - Nome do jogador: " + listaJogadores[index].getNome());
+                System.out.println("2 - e-mail do jogador: " + listaJogadores[index].getEmail());
+                System.out.println("3 - Senha do jogador: " + listaJogadores[index].getSenha());
+                System.out.println("4 - Sair");
+                System.out.println();
+                String resposta = System.console().readLine();
+                boolean respostaValida = false;
+                while (respostaValida == false) {
+                    switch (resposta) {
+                        case "1":
+                            System.out.println("Digite o novo nome do jogador:");
+                            String novoNome = System.console().readLine();
+                            listaJogadores[index].setNome(novoNome);
+                            respostaValida = true;
+                            break;
+                        case "2":
+                            System.out.println("Digite o novo e-mail do jogador:");
+                            String novoEmail = System.console().readLine();
+                            listaJogadores[index].setEmail(novoEmail);
+                            respostaValida = true;
+                            break;
+                        case "3":
+                            System.out.println("Digite a nova senha do jogador:");
+                            String novaSenha = System.console().readLine();
+                            listaJogadores[index].setSenha(novaSenha);
+                            respostaValida = true;
+                            break;
+                        case "4":
+                            System.out.println("Saindo da modificação do jogador.");
+                            respostaValida = true;
+                            break;
+                        default:
+                            System.out.println("Opção inválida. Tente novamente.");
+                            resposta = System.console().readLine();
+                    }
+                }
+                System.out.println("Deseja continuar modificando o jogador?)");
+                System.out.println("Digite 'S' para continuar ou qualquer outra tecla para sair.");
+                String continuarResposta = System.console().readLine();
+                if (!continuarResposta.equalsIgnoreCase("S")) {
+                    continuarModificacao = false;
+                    atualizarJogador(listaJogadores[index]);
+                    System.out.println("Modificações salvas com sucesso.");
+                }
+            }
+        } else {
+            System.out.println("Jogador não encontrado.");
+        }
+    }
+
     public void importarJogadores(String arquivo) {
         int escopo1 = arquivo.indexOf("<:>");
         boolean temProximo = true;

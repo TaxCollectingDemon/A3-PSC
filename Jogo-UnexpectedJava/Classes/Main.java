@@ -73,12 +73,12 @@ public class Main {
             
             resposta = "";
             Random random = new Random();
-            Pontuacao pontuacao = new Pontuacao();
             boolean querjogar = true;
             boolean estaLogado = false;
             Jogador jogadorAtivo = new Jogador();
 
             while (querjogar == true) {
+                Pontuacao pontuacao = new Pontuacao();
                 for (Nivel nivel : niveis.getListaNiveis()) {
                     System.out.println(nivel.getNome());
                     System.out.println("Dificuldade: " + nivel.getDificuldade());
@@ -170,26 +170,139 @@ public class Main {
                 Thread.sleep(300);
                 System.out.println("Seu título final é: " + pontuacao.getTitulo() + "!");
                 System.out.println();
+                System.out.println();
                 Thread.sleep(300);
 
-                //Inserir aqui todas as funcionalidades de salvar o jogador, atualizar o top 10, etc.
-
-                System.out.println("Deseja jogar novamente?");
-                System.out.println("Digite 'S' para aceitar, ou qualquer outra tecla para recusar.");
-                Thread.sleep(300);
-                resposta = scanner.nextLine().toUpperCase();
-                if (resposta.equals("S")) {
-                    querjogar = true;
+                if (estaLogado == false) {
+                    System.out.println("Ranking dos 10 melhores jogadores:");
+                    listaJogadores.atualizarTop10();
+                    System.out.println(listaJogadores.exibirTop10());
                     Thread.sleep(500);
-                }
-                else {
-                    querjogar = false;
-                    System.out.println("Obrigado por jogar!");
+                    System.out.println();
+                    System.out.println("Para salvar sua pontuação, você precisa estar logado.");
+                    System.out.println("Deseja logar ou se cadastrar?");
                     Thread.sleep(300);
-                    System.out.println("Se quiser jogar novamente, basta reiniciar o programa.");
-                    Thread.sleep(300);
+                    System.out.println("Digite 'S' para aceitar, ou qualquer outra tecla para recusar.");
+                    resposta = scanner.nextLine().toUpperCase();
+
+                    if (resposta.equals("S")) {
+                        System.out.println("Digite um login para entrar ou se cadastrar:");
+                        resposta = scanner.nextLine();
+                        String tempUsername = resposta;
+                        jogadorAtivo = listaJogadores.fazerLogin(resposta);
+                        if (jogadorAtivo != null) {
+                            estaLogado = true;
+                            System.out.println("Você agora está logado como: " + jogadorAtivo.getUsername());
+                        } else {
+                            estaLogado = false;
+                            System.out.println("Deseja se cadastrar?");
+                            System.out.println("Digite 'S' para aceitar, ou qualquer outra tecla para recusar.");
+                            resposta = scanner.nextLine().toUpperCase();
+                            if (resposta.equals("S")) {
+                                System.out.println("Digite seu nome:");
+                                String tempNome = scanner.nextLine();
+                                System.out.println("Digite um e-mail:");
+                                String tempEmail = scanner.nextLine();
+                                System.out.println("Digite uma senha:");
+                                String tempSenha = scanner.nextLine();
+                                jogadorAtivo = new Jogador(tempNome, tempUsername, tempSenha, tempEmail, pontuacao.getPontos());
+                                listaJogadores.adicionarJogador(jogadorAtivo);
+                                listaJogadores.salvarJogadores(escritor);
+                                System.out.println("Cadastro realizado com sucesso!");
+                                System.out.println("Você agora está logado como: " + jogadorAtivo.getUsername());
+                                estaLogado = true;
+                                listaJogadores.atualizarTop10();
+                                System.out.println("Ranking dos 10 melhores jogadores:");
+                                System.out.println(listaJogadores.exibirTop10());
+                            } else {
+                                System.out.println("Ok, você não está logado, e sua pontuação não será salva.");
+                            }
+                        }
+                    } else {
+                        System.out.println("Ok, sua pontuação não será salva.");
+                    }
+
+                }   else if (listaJogadores.encontrarJogador(jogadorAtivo.getUsername()) != -1) {
+                    jogadorAtivo.salvarMelhor(pontuacao.getPontos());
+                    listaJogadores.atualizarJogador(jogadorAtivo);
+                    listaJogadores.salvarJogadores(escritor);
+                    listaJogadores.atualizarTop10();
+                    System.out.println(listaJogadores.exibirTop10());
+                    System.out.println();
+                    System.out.println("Sua pontuação foi atualizada.");
                 }
 
+                Thread.sleep(1000);
+                
+                
+                boolean continuarSelecao = true;
+                do {
+                    if (estaLogado == true) {
+                        System.out.println("Você está logado como: " + jogadorAtivo.getUsername());
+                        System.out.println("Digite a opção que deseja selecionar:");
+                        System.out.println("1 - Jogar novamente");
+                        System.out.println("2 - Modificar dados do jogador");
+                        System.out.println("3 - Trocar de jogador");
+                        System.out.println("4 - Parar de jogar");
+                        System.out.println();
+                        resposta = scanner.nextLine();
+                        Thread.sleep(500);
+
+                        switch (resposta) {
+                            case "1":
+                                continuarSelecao = false;
+                                querjogar = true;
+                                break;
+                            case "2":
+                                    listaJogadores.modificarJogador(jogadorAtivo);
+                                    jogadorAtivo = listaJogadores.getListaJogadores()[listaJogadores.encontrarJogador(jogadorAtivo.getUsername())];
+                            case "3":
+                                jogadorAtivo = listaJogadores.fazerLogin();
+                                if (jogadorAtivo != null) {
+                                    estaLogado = true;
+                                    System.out.println("Você agora está logado como: " + jogadorAtivo.getUsername());
+                                } else {
+                                    estaLogado = false;
+                                    System.out.println("Login ou cadastro falhou. Você não está logado.");
+                                    continuarSelecao = false;
+                                }
+                                break;
+                            case "4":
+                                continuarSelecao = false;
+                                querjogar = false;
+                                escritor.close();
+                                System.out.println("Obrigado por jogar!");
+                                Thread.sleep(300);
+                                System.out.println("Se quiser jogar novamente, basta reiniciar o programa.");
+                                Thread.sleep(300);
+                                break;
+                            default:
+                                System.out.println("Opção inválida. Tente novamente.");
+                                continuarSelecao = true;
+                        }
+                    }
+                    Thread.sleep(500);
+                } while (continuarSelecao == true);
+                
+
+                if (estaLogado == false) {
+                    System.out.println("Deseja jogar novamente?");
+                    System.out.println("Digite 'S' para aceitar, ou qualquer outra tecla para recusar.");
+                    Thread.sleep(300);
+                    resposta = scanner.nextLine().toUpperCase();
+                    if (resposta.equals("S")) {
+                        querjogar = true;
+                        Thread.sleep(500);
+                    }
+                    else {
+                        querjogar = false;
+                        escritor.close();
+                        System.out.println("Obrigado por jogar!");
+                        Thread.sleep(300);
+                        System.out.println("Se quiser jogar novamente, basta reiniciar o programa.");
+                        Thread.sleep(300);
+                    }
+                }
 
             }
 
