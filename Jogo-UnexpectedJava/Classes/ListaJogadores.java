@@ -60,22 +60,23 @@ public class ListaJogadores {
         }
     }
 
-    public void salvarJogadores(FileWriter escritor) {
-        StringBuilder conteudo = new StringBuilder();
+    public void salvarJogadores() {
+        try {
+            FileWriter escritor = new FileWriter("Jogo-UnexpectedJava\\Arquivos-texto\\Lista-jogadores.txt", false);
+            StringBuilder conteudo = new StringBuilder();
         for (Jogador jogador : listaJogadores) {
             if (jogador != null) {
                 conteudo.append("<:> ").append(jogador.getUsername()).append(" <:> ")
-                        .append(jogador.getNome()).append(" <:> ")
-                        .append(jogador.getSenha()).append(" <:> ")
                         .append(jogador.getEmail()).append(" <:> ")
+                        .append(jogador.getSenha()).append(" <:> ")
+                        .append(jogador.getNome()).append(" <:> ")
                         .append(jogador.getPontMax()).append(" <!>\n\n");
             }
         }
-        try {
-            escritor.write(conteudo.toString());
-            escritor.flush();
+        escritor.write(conteudo.toString());
+        escritor.close();
         } catch (Exception e) {
-            System.err.println("Erro ao salvar jogadores: " + e.getMessage());
+            System.err.println("Erro ao abrir o arquivo para escrita: " + e.getMessage());
         }
     }
 
@@ -248,9 +249,9 @@ public class ListaJogadores {
             int escopo6 = arquivo.indexOf("<!>", escopo5 + 3);
 
             String tempUsername = arquivo.substring(escopo1 + 3, escopo2).trim();
-            String tempEmail = arquivo.substring(escopo4 + 3, escopo5).trim();
+            String tempEmail = arquivo.substring(escopo2 + 3, escopo3).trim();
             String tempSenha = arquivo.substring(escopo3 + 3, escopo4).trim();
-            String tempNome = arquivo.substring(escopo2 + 3, escopo3).trim();
+            String tempNome = arquivo.substring(escopo4 + 3, escopo5).trim();
             int tempPontMax = Integer.parseInt(arquivo.substring(escopo5 + 3, escopo6).trim());
             
             Jogador tempJogador = new Jogador(tempNome, tempUsername, tempSenha, tempEmail, tempPontMax);

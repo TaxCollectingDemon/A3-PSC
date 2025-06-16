@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Random;
@@ -27,7 +26,6 @@ public class Main {
             BufferedReader introducao = new BufferedReader(introScan);
             FileReader jogadoresScan = new FileReader("Jogo-UnexpectedJava\\Arquivos-texto\\Lista-jogadores.txt");
             BufferedReader jogadores = new BufferedReader(jogadoresScan);
-            FileWriter escritor = new FileWriter("Jogo-UnexpectedJava\\Arquivos-texto\\Lista-jogadores.txt");
 
         ) {
             StringBuilder conteudo = new StringBuilder();
@@ -52,6 +50,7 @@ public class Main {
                 lineJogadores = jogadores.readLine();
             }
             listaJogadores.importarJogadores(conteudoJogadores.toString());
+            listaJogadores.salvarJogadores();
 
             Thread.sleep(1500);
 
@@ -207,7 +206,7 @@ public class Main {
                                 String tempSenha = scanner.nextLine();
                                 jogadorAtivo = new Jogador(tempNome, tempUsername, tempSenha, tempEmail, pontuacao.getPontos());
                                 listaJogadores.adicionarJogador(jogadorAtivo);
-                                listaJogadores.salvarJogadores(escritor);
+                                listaJogadores.salvarJogadores();
                                 System.out.println("Cadastro realizado com sucesso!");
                                 System.out.println("Você agora está logado como: " + jogadorAtivo.getUsername());
                                 estaLogado = true;
@@ -225,7 +224,7 @@ public class Main {
                 }   else if (listaJogadores.encontrarJogador(jogadorAtivo.getUsername()) != -1) {
                     jogadorAtivo.salvarMelhor(pontuacao.getPontos());
                     listaJogadores.atualizarJogador(jogadorAtivo);
-                    listaJogadores.salvarJogadores(escritor);
+                    listaJogadores.salvarJogadores();
                     listaJogadores.atualizarTop10();
                     System.out.println(listaJogadores.exibirTop10());
                     System.out.println();
@@ -255,7 +254,9 @@ public class Main {
                                 break;
                             case "2":
                                     listaJogadores.modificarJogador(jogadorAtivo);
+                                    listaJogadores.salvarJogadores();
                                     jogadorAtivo = listaJogadores.getListaJogadores()[listaJogadores.encontrarJogador(jogadorAtivo.getUsername())];
+                                    break;
                             case "3":
                                 jogadorAtivo = listaJogadores.fazerLogin();
                                 if (jogadorAtivo != null) {
@@ -270,7 +271,6 @@ public class Main {
                             case "4":
                                 continuarSelecao = false;
                                 querjogar = false;
-                                escritor.close();
                                 System.out.println("Obrigado por jogar!");
                                 Thread.sleep(300);
                                 System.out.println("Se quiser jogar novamente, basta reiniciar o programa.");
@@ -296,7 +296,6 @@ public class Main {
                     }
                     else {
                         querjogar = false;
-                        escritor.close();
                         System.out.println("Obrigado por jogar!");
                         Thread.sleep(300);
                         System.out.println("Se quiser jogar novamente, basta reiniciar o programa.");
